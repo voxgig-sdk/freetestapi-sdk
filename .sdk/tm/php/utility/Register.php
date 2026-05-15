@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// Freetestapi SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+FreetestapiUtility::setRegistrar(function (FreetestapiUtility $u): void {
+    $u->clean = [FreetestapiClean::class, 'call'];
+    $u->done = [FreetestapiDone::class, 'call'];
+    $u->make_error = [FreetestapiMakeError::class, 'call'];
+    $u->feature_add = [FreetestapiFeatureAdd::class, 'call'];
+    $u->feature_hook = [FreetestapiFeatureHook::class, 'call'];
+    $u->feature_init = [FreetestapiFeatureInit::class, 'call'];
+    $u->fetcher = [FreetestapiFetcher::class, 'call'];
+    $u->make_fetch_def = [FreetestapiMakeFetchDef::class, 'call'];
+    $u->make_context = [FreetestapiMakeContext::class, 'call'];
+    $u->make_options = [FreetestapiMakeOptions::class, 'call'];
+    $u->make_request = [FreetestapiMakeRequest::class, 'call'];
+    $u->make_response = [FreetestapiMakeResponse::class, 'call'];
+    $u->make_result = [FreetestapiMakeResult::class, 'call'];
+    $u->make_point = [FreetestapiMakePoint::class, 'call'];
+    $u->make_spec = [FreetestapiMakeSpec::class, 'call'];
+    $u->make_url = [FreetestapiMakeUrl::class, 'call'];
+    $u->param = [FreetestapiParam::class, 'call'];
+    $u->prepare_auth = [FreetestapiPrepareAuth::class, 'call'];
+    $u->prepare_body = [FreetestapiPrepareBody::class, 'call'];
+    $u->prepare_headers = [FreetestapiPrepareHeaders::class, 'call'];
+    $u->prepare_method = [FreetestapiPrepareMethod::class, 'call'];
+    $u->prepare_params = [FreetestapiPrepareParams::class, 'call'];
+    $u->prepare_path = [FreetestapiPreparePath::class, 'call'];
+    $u->prepare_query = [FreetestapiPrepareQuery::class, 'call'];
+    $u->result_basic = [FreetestapiResultBasic::class, 'call'];
+    $u->result_body = [FreetestapiResultBody::class, 'call'];
+    $u->result_headers = [FreetestapiResultHeaders::class, 'call'];
+    $u->transform_request = [FreetestapiTransformRequest::class, 'call'];
+    $u->transform_response = [FreetestapiTransformResponse::class, 'call'];
+});

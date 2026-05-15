@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://freetestapi.com/"
+      }
+      description: "FreeTestAPI provides over 25 dummy APIs to streamline the process of API testing for developers. It allows users to access mock data for various applications, ensuring seamless workflow integration."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://freetestapi.com/api/v1"
+        }
+      ]
+      title: "FreeTestAPI"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
