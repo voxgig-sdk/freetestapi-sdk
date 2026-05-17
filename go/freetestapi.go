@@ -1,10 +1,10 @@
 package voxgigfreetestapisdk
 
 import (
-	"github.com/voxgig-sdk/freetestapi-sdk/core"
-	"github.com/voxgig-sdk/freetestapi-sdk/entity"
-	"github.com/voxgig-sdk/freetestapi-sdk/feature"
-	_ "github.com/voxgig-sdk/freetestapi-sdk/utility"
+	"github.com/voxgig-sdk/freetestapi-sdk/go/core"
+	"github.com/voxgig-sdk/freetestapi-sdk/go/entity"
+	"github.com/voxgig-sdk/freetestapi-sdk/go/feature"
+	_ "github.com/voxgig-sdk/freetestapi-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

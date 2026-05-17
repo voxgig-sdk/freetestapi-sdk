@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/freetestapi-sdk"
-	"github.com/voxgig-sdk/freetestapi-sdk/core"
+	sdk "github.com/voxgig-sdk/freetestapi-sdk/go"
+	"github.com/voxgig-sdk/freetestapi-sdk/go/core"
 )
 
 func TestProductDirect(t *testing.T) {
