@@ -102,7 +102,6 @@ def _user_basic_setup(extra):
         "FREETESTAPI_TEST_USER_ENTID": idmap,
         "FREETESTAPI_TEST_LIVE": "FALSE",
         "FREETESTAPI_TEST_EXPLAIN": "FALSE",
-        "FREETESTAPI_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +112,6 @@ def _user_basic_setup(extra):
     if env.get("FREETESTAPI_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FREETESTAPI_APIKEY"),
             },
             extra or {},
         ])

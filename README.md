@@ -1,9 +1,94 @@
 # Freetestapi SDK
 
+Collection of 25+ dummy REST endpoints serving mock JSON data for prototyping and testing clients
 
+> TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-Available for [Golang](go/) and [Go CLI](go-cli/) and [Go MCP server](go-mcp/) and [Lua](lua/) and [PHP](php/) and [Python](py/) and [Ruby](rb/) and [TypeScript](ts/).
+## About FreeTestAPI
 
+[FreeTestAPI](https://freetestapi.com) publishes a set of more than 25 throwaway REST endpoints that return canned JSON. It exists so developers can wire up clients, demos, or test suites without spinning up their own mock server or signing up for a backend service.
+
+Each endpoint returns a list of records in a familiar shape (books, todos, airlines, products, users, and similar everyday resources), making it easy to populate UI components or exercise data-loading code paths.
+
+Operational notes from the community catalogue: CORS is disabled on the endpoints, no authentication is documented, and rate limits are not published. The service has been reported as unreliable, so treat it as best-effort and have a fallback ready for any test that must run deterministically.
+
+## Try it
+
+**TypeScript**
+```bash
+npm install freetestapi
+```
+
+**Python**
+```bash
+pip install freetestapi-sdk
+```
+
+**PHP**
+```bash
+composer require voxgig/freetestapi-sdk
+```
+
+**Golang**
+```bash
+go get github.com/voxgig-sdk/freetestapi-sdk/go
+```
+
+**Ruby**
+```bash
+gem install freetestapi-sdk
+```
+
+**Lua**
+```bash
+luarocks install freetestapi-sdk
+```
+
+## 30-second quickstart
+
+### TypeScript
+
+```ts
+import { FreetestapiSDK } from 'freetestapi'
+
+const client = new FreetestapiSDK({})
+
+// List all products
+const products = await client.Product().list()
+```
+
+See the [TypeScript README](ts/README.md) for the
+full guide, or scroll down for the same example in other languages.
+
+## What's in the box
+
+| Surface | Use it for | Path |
+| --- | --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
+| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+
+## Use it from an AI agent (MCP)
+
+The generated MCP server exposes every operation in this SDK as an
+[MCP](https://modelcontextprotocol.io) tool that Claude, Cursor or Cline
+can call directly. Build and register it:
+
+```bash
+cd go-mcp && go build -o freetestapi-mcp .
+```
+
+Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
+
+```json
+{
+  "mcpServers": {
+    "freetestapi": {
+      "command": "/abs/path/to/freetestapi-mcp"
+    }
+  }
+}
+```
 
 ## Entities
 
@@ -11,76 +96,23 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Product** |  | `/products` |
-| **User** |  | `/users` |
+| **Product** | Mock product records — sample catalogue-style JSON typically used to populate storefront and listing UIs. | `/products` |
+| **User** | Mock user records — sample profile-style JSON typically used to populate account and directory UIs. | `/users` |
 
-Each entity supports the following operations where available: **load**, **list**, **create**,
-**update**, and **remove**.
+Each entity supports the following operations where available: **load**,
+**list**, **create**, **update**, and **remove**.
 
+## Quickstart in other languages
 
-## Architecture
+### Python
 
-### Entity-operation model
+```python
+from freetestapi_sdk import FreetestapiSDK
 
-Every SDK call follows the same pipeline:
+client = FreetestapiSDK({})
 
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-At each stage a feature hook fires (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), allowing features to inspect or modify the pipeline.
-
-### Features
-
-Features are hook-based middleware that extend SDK behaviour.
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-You can add custom features by passing them in the `extend` option at
-construction time.
-
-### Direct and Prepare
-
-For endpoints not covered by the entity model, use the low-level methods:
-
-- **`direct(fetchargs)`** — build and send an HTTP request in one step.
-- **`prepare(fetchargs)`** — build the request without sending it.
-
-Both accept a map with `path`, `method`, `params`, `query`, `headers`,
-and `body`.
-
-
-## Quick start
-
-### Golang
-
-```go
-import sdk "github.com/voxgig-sdk/freetestapi-sdk/go"
-
-client := sdk.NewFreetestapiSDK(map[string]any{
-    "apikey": os.Getenv("FREETESTAPI_APIKEY"),
-})
-
-// List all products
-products, err := client.Product(nil).List(nil, nil)
-```
-
-### Lua
-
-```lua
-local sdk = require("freetestapi_sdk")
-
-local client = sdk.new({
-  apikey = os.getenv("FREETESTAPI_APIKEY"),
-})
-
--- List all products
-local products, err = client:Product(nil):list(nil, nil)
+# List all products
+products, err = client.Product(None).list(None, None)
 ```
 
 ### PHP
@@ -89,26 +121,21 @@ local products, err = client:Product(nil):list(nil, nil)
 <?php
 require_once 'freetestapi_sdk.php';
 
-$client = new FreetestapiSDK([
-    "apikey" => getenv("FREETESTAPI_APIKEY"),
-]);
+$client = new FreetestapiSDK([]);
 
 // List all products
 [$products, $err] = $client->Product(null)->list(null, null);
 ```
 
-### Python
+### Golang
 
-```python
-import os
-from freetestapi_sdk import FreetestapiSDK
+```go
+import sdk "github.com/voxgig-sdk/freetestapi-sdk/go"
 
-client = FreetestapiSDK({
-    "apikey": os.environ.get("FREETESTAPI_APIKEY"),
-})
+client := sdk.NewFreetestapiSDK(map[string]any{})
 
-# List all products
-products, err = client.Product(None).list(None, None)
+// List all products
+products, err := client.Product(nil).List(nil, nil)
 ```
 
 ### Ruby
@@ -116,48 +143,42 @@ products, err = client.Product(None).list(None, None)
 ```ruby
 require_relative "Freetestapi_sdk"
 
-client = FreetestapiSDK.new({
-  "apikey" => ENV["FREETESTAPI_APIKEY"],
-})
+client = FreetestapiSDK.new({})
 
 # List all products
 products, err = client.Product(nil).list(nil, nil)
 ```
 
-### TypeScript
-
-```ts
-import { FreetestapiSDK } from 'freetestapi'
-
-const client = new FreetestapiSDK({
-  apikey: process.env.FREETESTAPI_APIKEY,
-})
-
-// List all products
-const products = await client.Product().list()
-```
-
-
-## Testing
-
-Both SDKs provide a test mode that replaces the HTTP transport with an
-in-memory mock, so tests run without a network connection.
-
-### Golang
-
-```go
-client := sdk.TestSDK(nil, nil)
-result, err := client.Product(nil).Load(
-    map[string]any{"id": "test01"}, nil,
-)
-```
-
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Product(nil):load(
-  { id = "test01" }, nil
+local sdk = require("freetestapi_sdk")
+
+local client = sdk.new({})
+
+-- List all products
+local products, err = client:Product(nil):list(nil, nil)
+```
+
+## Unit testing in offline mode
+
+Every SDK ships a test mode that swaps the HTTP transport for an
+in-memory mock, so unit tests run offline.
+
+### TypeScript
+
+```ts
+const client = FreetestapiSDK.test()
+const result = await client.Product().load({ id: 'test01' })
+// result.ok === true, result.data contains mock data
+```
+
+### Python
+
+```python
+client = FreetestapiSDK.test(None, None)
+result, err = client.Product(None).load(
+    {"id": "test01"}, None
 )
 ```
 
@@ -170,12 +191,12 @@ $client = FreetestapiSDK::test(null, null);
 );
 ```
 
-### Python
+### Golang
 
-```python
-client = FreetestapiSDK.test(None, None)
-result, err = client.Product(None).load(
-    {"id": "test01"}, None
+```go
+client := sdk.TestSDK(nil, nil)
+result, err := client.Product(nil).Load(
+    map[string]any{"id": "test01"}, nil,
 )
 ```
 
@@ -188,14 +209,46 @@ result, err = client.Product(nil).load(
 )
 ```
 
-### TypeScript
+### Lua
 
-```ts
-const client = FreetestapiSDK.test()
-const result = await client.Product().load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+```lua
+local client = sdk.test(nil, nil)
+local result, err = client:Product(nil):load(
+  { id = "test01" }, nil
+)
 ```
 
+## How it works
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
+
+### Direct and Prepare
+
+For endpoints the entity model doesn't cover, use the low-level methods:
+
+- **`direct(fetchargs)`** — build and send an HTTP request in one step.
+- **`prepare(fetchargs)`** — build the request without sending it.
+
+Both accept a map with `path`, `method`, `params`, `query`,
+`headers`, and `body`. See the [How-to guides](#how-to-guides) below.
 
 ## How-to guides
 
@@ -203,21 +256,22 @@ const result = await client.Product().load({ id: 'test01' })
 
 When the entity interface does not cover an endpoint, use `direct`:
 
-**Go:**
-```go
-result, err := client.Direct(map[string]any{
-    "path":   "/api/resource/{id}",
-    "method": "GET",
-    "params": map[string]any{"id": "example"},
+**TypeScript:**
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example' },
 })
+console.log(result.data)
 ```
 
-**Lua:**
-```lua
-local result, err = client:direct({
-  path = "/api/resource/{id}",
-  method = "GET",
-  params = { id = "example" },
+**Python:**
+```python
+result, err = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example"},
 })
 ```
 
@@ -230,12 +284,12 @@ local result, err = client:direct({
 ]);
 ```
 
-**Python:**
-```python
-result, err = client.direct({
-    "path": "/api/resource/{id}",
+**Go:**
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
     "method": "GET",
-    "params": {"id": "example"},
+    "params": map[string]any{"id": "example"},
 })
 ```
 
@@ -248,25 +302,28 @@ result, err = client.direct({
 })
 ```
 
-**TypeScript:**
-```ts
-const result = await client.direct({
-  path: '/api/resource/{id}',
-  method: 'GET',
-  params: { id: 'example' },
+**Lua:**
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example" },
 })
-console.log(result.data)
 ```
 
+## Per-language documentation
 
-## Language-specific documentation
+- [TypeScript](ts/README.md)
+- [Python](py/README.md)
+- [PHP](php/README.md)
+- [Golang](go/README.md)
+- [Ruby](rb/README.md)
+- [Lua](lua/README.md)
 
-- [Golang SDK](go/README.md)
-- [Go CLI SDK](go-cli/README.md)
-- [Go MCP server SDK](go-mcp/README.md)
-- [Lua SDK](lua/README.md)
-- [PHP SDK](php/README.md)
-- [Python SDK](py/README.md)
-- [Ruby SDK](rb/README.md)
-- [TypeScript SDK](ts/README.md)
+## Using the FreeTestAPI
 
+- Upstream: [https://freetestapi.com](https://freetestapi.com)
+
+---
+
+Generated from the FreeTestAPI OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).

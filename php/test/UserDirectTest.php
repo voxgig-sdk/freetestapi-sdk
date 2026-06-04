@@ -123,14 +123,12 @@ function user_direct_setup($mockres)
     $env = Runner::env_override([
         "FREETESTAPI_TEST_USER_ENTID" => [],
         "FREETESTAPI_TEST_LIVE" => "FALSE",
-        "FREETESTAPI_APIKEY" => "NONE",
     ]);
 
     $live = $env["FREETESTAPI_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["FREETESTAPI_APIKEY"],
         ];
         $client = new FreetestapiSDK($merged_opts);
         return [

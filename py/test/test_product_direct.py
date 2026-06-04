@@ -61,14 +61,12 @@ def _product_direct_setup(mockres):
     env = runner.env_override({
         "FREETESTAPI_TEST_PRODUCT_ENTID": {},
         "FREETESTAPI_TEST_LIVE": "FALSE",
-        "FREETESTAPI_APIKEY": "NONE",
     })
 
     live = env.get("FREETESTAPI_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("FREETESTAPI_APIKEY"),
         }
         client = FreetestapiSDK(merged_opts)
         return {
