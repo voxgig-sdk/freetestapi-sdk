@@ -1,38 +1,13 @@
 {
-  "name": "freetestapi",
-  "origin": "voxgig-sdk",
   "def": "freetestapi_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
-      "info": {
-        "contact": {
-          "url": "https://freetestapi.com/"
-        },
-        "description": "FreeTestAPI provides over 25 dummy APIs to streamline the process of API testing for developers. It allows users to access mock data for various applications, ensuring seamless workflow integration.",
-        "servers": [
-          {
-            "description": "Production server",
-            "url": "https://freetestapi.com/api/v1"
-          }
-        ],
-        "title": "FreeTestAPI",
-        "version": "1.0.0",
-        "tagline": "Collection of 25+ dummy REST endpoints serving mock JSON data for prototyping and testing clients",
-        "homepage": "https://freetestapi.com",
-        "docs_url": "https://freetestapi.com",
-        "about_md": "[FreeTestAPI](https://freetestapi.com) publishes a set of more than 25 throwaway REST endpoints that return canned JSON. It exists so developers can wire up clients, demos, or test suites without spinning up their own mock server or signing up for a backend service.\n\nEach endpoint returns a list of records in a familiar shape (books, todos, airlines, products, users, and similar everyday resources), making it easy to populate UI components or exercise data-loading code paths.\n\nOperational notes from the community catalogue: CORS is disabled on the endpoints, no authentication is documented, and rate limits are not published. The service has been reported as unreliable, so treat it as best-effort and have a fallback ready for any test that must run deterministically.",
-        "entity_desc": {
-          "product": "Mock product records — sample catalogue-style JSON typically used to populate storefront and listing UIs.",
-          "user": "Mock user records — sample profile-style JSON typically used to populate account and directory UIs."
-        },
-        "auth": false
-      },
       "config": {
         "auth": {
           "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
         },
         "docs_order": [
           "ts",
@@ -41,73 +16,77 @@
           "go",
           "rb",
           "lua"
-        ]
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
       },
       "entity": {
         "product": {
+          "active": true,
           "alias": {
             "field": {}
           },
           "fields": [
             {
+              "active": true,
               "name": "brand",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "category",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "created_at",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "description",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "id",
               "req": false,
-              "type": "`$INTEGER`",
-              "active": true
+              "type": "`$INTEGER`"
             },
             {
+              "active": true,
               "name": "image",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "name",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "price",
               "req": false,
-              "type": "`$NUMBER`",
-              "active": true
+              "type": "`$NUMBER`"
             },
             {
+              "active": true,
               "name": "rating",
               "req": false,
-              "type": "`$NUMBER`",
-              "active": true
+              "type": "`$NUMBER`"
             },
             {
+              "active": true,
               "name": "stock",
               "req": false,
-              "type": "`$INTEGER`",
-              "active": true
+              "type": "`$INTEGER`"
             }
           ],
           "id": {
@@ -117,36 +96,38 @@
           "name": "product",
           "op": {
             "list": {
+              "input": "data",
               "name": "list",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "query": [
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "category",
                         "orig": "category",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": 10,
                         "kind": "query",
                         "name": "limit",
                         "orig": "limit",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": 1,
                         "kind": "query",
                         "name": "page",
                         "orig": "page",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       }
                     ]
                   },
@@ -165,70 +146,68 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
           "relations": {
             "ancestors": []
           }
         },
         "user": {
+          "active": true,
           "alias": {
             "field": {}
           },
           "fields": [
             {
+              "active": true,
               "name": "address",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             },
             {
+              "active": true,
               "name": "company",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             },
             {
+              "active": true,
               "name": "email",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "id",
               "req": false,
-              "type": "`$INTEGER`",
-              "active": true
+              "type": "`$INTEGER`"
             },
             {
+              "active": true,
               "name": "name",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "phone",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "username",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "website",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             }
           ],
           "id": {
@@ -238,28 +217,30 @@
           "name": "user",
           "op": {
             "list": {
+              "input": "data",
               "name": "list",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "query": [
                       {
+                        "active": true,
                         "example": 10,
                         "kind": "query",
                         "name": "limit",
                         "orig": "limit",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": 1,
                         "kind": "query",
                         "name": "page",
                         "orig": "page",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       }
                     ]
                   },
@@ -277,25 +258,25 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             },
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "params": [
                       {
+                        "active": true,
                         "kind": "param",
                         "name": "id",
                         "orig": "id",
                         "reqd": true,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       }
                     ]
                   },
@@ -313,14 +294,11 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
           "relations": {
             "ancestors": []
           }
@@ -328,9 +306,6 @@
       },
       "feature": {
         "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
           "active": true,
           "config": {
             "options": {
@@ -338,6 +313,14 @@
             }
           },
           "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
             "PostConstruct": {
               "active": true,
               "await": false
@@ -346,25 +329,11 @@
               "active": true,
               "await": false
             },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
+            "PostOperation": {
+              "active": false,
               "await": false
             },
             "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
               "active": true,
               "await": false
             },
@@ -380,20 +349,32 @@
               "active": true,
               "await": false
             },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
             "PreTarget": {
               "active": false,
               "await": false
             },
-            "PostOperation": {
-              "active": false,
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
               "await": false
             }
           },
+          "name": "test",
           "target": {
-            "ts": {
+            "go": {
               "deps": {}
             },
-            "go": {
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
               "deps": {}
             },
             "lua": {
@@ -408,23 +389,30 @@
             "rb": {
               "deps": {}
             },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
+            "ts": {
               "deps": {}
             }
-          }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
         }
       },
       "flow": {
         "BasicProductFlow": {
+          "active": true,
           "entity": "product",
+          "key$": "BasicProductFlow",
           "kind": "basic",
           "name": "BasicProductFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
               "op": "list",
+              "spec": [],
               "valid": [
                 {
                   "apply": "ItemExists",
@@ -432,25 +420,25 @@
                     "ref": "product_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicProductFlow",
-          "active": true,
-          "param": {}
+          ]
         },
         "BasicUserFlow": {
+          "active": true,
           "entity": "user",
+          "key$": "BasicUserFlow",
           "kind": "basic",
           "name": "BasicUserFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
               "op": "list",
+              "spec": [],
               "valid": [
                 {
                   "apply": "ItemExists",
@@ -458,14 +446,11 @@
                     "ref": "user_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
+              ]
             },
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "user_ref01",
                 "srcdatavar": "user_ref01_data",
@@ -475,6 +460,7 @@
                 "id": "user01"
               },
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -482,27 +468,52 @@
                     "mark": "Mark01-user_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicUserFlow",
-          "active": true,
-          "param": {}
+          ]
         }
       },
+      "info": {
+        "contact": {
+          "url": "https://freetestapi.com/"
+        },
+        "description": "FreeTestAPI provides over 25 dummy APIs to streamline the process of API testing for developers. It allows users to access mock data for various applications, ensuring seamless workflow integration.",
+        "servers": [
+          {
+            "description": "Production server",
+            "url": "https://freetestapi.com/api/v1"
+          }
+        ],
+        "title": "FreeTestAPI",
+        "version": "1.0.0"
+      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "freetestapi"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "freetestapi"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -517,19 +528,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "freetestapi"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -544,138 +555,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "freetestapi"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "freetestapi"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "freetestapi"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "freetestapi"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "freetestapi"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "freetestapi"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "freetestapi"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "freetestapi"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "freetestapi"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "freetestapi",
+  "origin": "voxgig-sdk"
 }

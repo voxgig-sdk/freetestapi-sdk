@@ -1,16 +1,8 @@
 # Freetestapi SDK
 
-Collection of 25+ dummy REST endpoints serving mock JSON data for prototyping and testing clients
+FreeTestAPI client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About FreeTestAPI
-
-[FreeTestAPI](https://freetestapi.com) publishes a set of more than 25 throwaway REST endpoints that return canned JSON. It exists so developers can wire up clients, demos, or test suites without spinning up their own mock server or signing up for a backend service.
-
-Each endpoint returns a list of records in a familiar shape (books, todos, airlines, products, users, and similar everyday resources), making it easy to populate UI components or exercise data-loading code paths.
-
-Operational notes from the community catalogue: CORS is disabled on the endpoints, no authentication is documented, and rate limits are not published. The service has been reported as unreliable, so treat it as best-effort and have a fallback ready for any test that must run deterministically.
 
 ## Try it
 
@@ -44,29 +36,31 @@ gem install freetestapi-sdk
 luarocks install freetestapi-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FreetestapiSDK } from 'freetestapi'
 
-const client = new FreetestapiSDK({})
+const client = new FreetestapiSDK({
+  apikey: process.env.FREETESTAPI_APIKEY,
+})
 
 // List all products
 const products = await client.Product().list()
+console.log(products.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -96,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Product** | Mock product records — sample catalogue-style JSON typically used to populate storefront and listing UIs. | `/products` |
-| **User** | Mock user records — sample profile-style JSON typically used to populate account and directory UIs. | `/users` |
+| **Product** |  | `/products` |
+| **User** |  | `/users` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -107,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from freetestapi_sdk import FreetestapiSDK
 
-client = FreetestapiSDK({})
+client = FreetestapiSDK({
+    "apikey": os.environ.get("FREETESTAPI_APIKEY"),
+})
 
 # List all products
-products, err = client.Product(None).list(None, None)
+products, err = client.Product().list()
+print(products)
 ```
 
 ### PHP
@@ -121,10 +119,13 @@ products, err = client.Product(None).list(None, None)
 <?php
 require_once 'freetestapi_sdk.php';
 
-$client = new FreetestapiSDK([]);
+$client = new FreetestapiSDK([
+    "apikey" => getenv("FREETESTAPI_APIKEY"),
+]);
 
 // List all products
-[$products, $err] = $client->Product(null)->list(null, null);
+[$products, $err] = $client->Product()->list();
+print_r($products);
 ```
 
 ### Golang
@@ -132,10 +133,13 @@ $client = new FreetestapiSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/freetestapi-sdk/go"
 
-client := sdk.NewFreetestapiSDK(map[string]any{})
+client := sdk.NewFreetestapiSDK(map[string]any{
+    "apikey": os.Getenv("FREETESTAPI_APIKEY"),
+})
 
 // List all products
 products, err := client.Product(nil).List(nil, nil)
+fmt.Println(products)
 ```
 
 ### Ruby
@@ -143,10 +147,13 @@ products, err := client.Product(nil).List(nil, nil)
 ```ruby
 require_relative "Freetestapi_sdk"
 
-client = FreetestapiSDK.new({})
+client = FreetestapiSDK.new({
+  "apikey" => ENV["FREETESTAPI_APIKEY"],
+})
 
 # List all products
-products, err = client.Product(nil).list(nil, nil)
+products, err = client.Product().list
+puts products
 ```
 
 ### Lua
@@ -154,10 +161,13 @@ products, err = client.Product(nil).list(nil, nil)
 ```lua
 local sdk = require("freetestapi_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FREETESTAPI_APIKEY"),
+})
 
 -- List all products
-local products, err = client:Product(nil):list(nil, nil)
+local products, err = client:Product():list()
+print(products)
 ```
 
 ## Unit testing in offline mode
@@ -176,25 +186,21 @@ const result = await client.Product().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FreetestapiSDK.test(None, None)
-result, err = client.Product(None).load(
-    {"id": "test01"}, None
-)
+client = FreetestapiSDK.test()
+result, err = client.Product().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FreetestapiSDK::test(null, null);
-[$result, $err] = $client->Product(null)->load(
-    ["id" => "test01"], null
-);
+$client = FreetestapiSDK::test();
+[$result, $err] = $client->Product()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Product(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -203,19 +209,15 @@ result, err := client.Product(nil).Load(
 ### Ruby
 
 ```ruby
-client = FreetestapiSDK.test(nil, nil)
-result, err = client.Product(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FreetestapiSDK.test
+result, err = client.Product().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Product(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Product():load({ id = "test01" })
 ```
 
 ## How it works
@@ -319,10 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the FreeTestAPI
-
-- Upstream: [https://freetestapi.com](https://freetestapi.com)
 
 ---
 

@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FREETESTAPI_TEST_PRODUCT_ENTID': {},
     'FREETESTAPI_TEST_LIVE': 'FALSE',
+    'FREETESTAPI_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FREETESTAPI_TEST_LIVE
 
   if (live) {
     const client = new FreetestapiSDK({
+      apikey: env.FREETESTAPI_APIKEY,
     })
 
     let idmap: any = env['FREETESTAPI_TEST_PRODUCT_ENTID']

@@ -63,12 +63,14 @@ function product_direct_setup(mockres)
   local env = runner.env_override({
     ["FREETESTAPI_TEST_PRODUCT_ENTID"] = {},
     ["FREETESTAPI_TEST_LIVE"] = "FALSE",
+    ["FREETESTAPI_APIKEY"] = "NONE",
   })
 
   local live = env["FREETESTAPI_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["FREETESTAPI_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://freetestapi.com/api/v1',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -58,109 +62,111 @@ class Config {
     "product": {
       "fields": [
         {
+          "active": true,
           "name": "brand",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "category",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "created_at",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "description",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "id",
           "req": false,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "image",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "name",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "price",
           "req": false,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 7
         },
         {
+          "active": true,
           "name": "rating",
           "req": false,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 8
         },
         {
+          "active": true,
           "name": "stock",
           "req": false,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 9
         }
       ],
       "name": "product",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "category",
                     "orig": "category",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": 10,
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "page",
                     "orig": "page",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   }
                 ]
               },
@@ -180,11 +186,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },
@@ -195,87 +199,89 @@ class Config {
     "user": {
       "fields": [
         {
+          "active": true,
           "name": "address",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "company",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "email",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "id",
           "req": false,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "name",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "phone",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "username",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "website",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 7
         }
       ],
       "name": "user",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "example": 10,
                     "kind": "query",
                     "name": "limit",
                     "orig": "limit",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   },
                   {
+                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "page",
                     "orig": "page",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   }
                 ]
               },
@@ -294,26 +300,26 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         },
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "id",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   }
                 ]
               },
@@ -332,11 +338,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
