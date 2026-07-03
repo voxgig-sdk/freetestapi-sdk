@@ -10,7 +10,7 @@ The TypeScript SDK for the Freetestapi API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install freetestapi
+npm install @voxgig-sdk/freetestapi
 ```
 ## Tutorial: your first API call
 

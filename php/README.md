@@ -10,7 +10,7 @@ The PHP SDK for the Freetestapi API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/freetestapi-sdk
+composer require voxgig-sdk/freetestapi
 ```
 
 

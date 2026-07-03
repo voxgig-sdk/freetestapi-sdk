@@ -10,13 +10,13 @@ The Ruby SDK for the Freetestapi API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install freetestapi-sdk
+gem install voxgig-sdk-freetestapi
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "freetestapi-sdk"
+gem "voxgig-sdk-freetestapi"
 ```
 
 Then run:

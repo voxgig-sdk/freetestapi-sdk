@@ -10,7 +10,7 @@ The Python SDK for the Freetestapi API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install freetestapi-sdk
+pip install voxgig-sdk-freetestapi
 ```
 
 Or install from source:
