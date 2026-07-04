@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ProductEntity
 
 ```php
-$product = $client->product();
+$product = $client->Product();
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ $product = $client->product();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->product()->list([]);
+$results = $client->Product()->list([]);
 ```
 
 ### Common Methods
@@ -150,7 +150,7 @@ Return the entity name.
 ## UserEntity
 
 ```php
-$user = $client->user();
+$user = $client->User();
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ $user = $client->user();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->user()->list([]);
+$results = $client->User()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -181,7 +181,7 @@ $results = $client->user()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->user()->load(["id" => "user_id"]);
+$result = $client->User()->load(["id" => "user_id"]);
 ```
 
 ### Common Methods

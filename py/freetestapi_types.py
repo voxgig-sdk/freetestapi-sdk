@@ -4,66 +4,65 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Product:
-    brand: Optional[str] = None
-    category: Optional[str] = None
-    created_at: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    name: Optional[str] = None
-    price: Optional[float] = None
-    rating: Optional[float] = None
-    stock: Optional[int] = None
+class Product(TypedDict, total=False):
+    brand: str
+    category: str
+    created_at: str
+    description: str
+    id: int
+    image: str
+    name: str
+    price: float
+    rating: float
+    stock: int
 
 
-@dataclass
-class ProductListMatch:
-    brand: Optional[str] = None
-    category: Optional[str] = None
-    created_at: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    name: Optional[str] = None
-    price: Optional[float] = None
-    rating: Optional[float] = None
-    stock: Optional[int] = None
+class ProductListMatch(TypedDict, total=False):
+    brand: str
+    category: str
+    created_at: str
+    description: str
+    id: int
+    image: str
+    name: str
+    price: float
+    rating: float
+    stock: int
 
 
-@dataclass
-class User:
-    address: Optional[dict] = None
-    company: Optional[dict] = None
-    email: Optional[str] = None
-    id: Optional[int] = None
-    name: Optional[str] = None
-    phone: Optional[str] = None
-    username: Optional[str] = None
-    website: Optional[str] = None
+class User(TypedDict, total=False):
+    address: dict
+    company: dict
+    email: str
+    id: int
+    name: str
+    phone: str
+    username: str
+    website: str
 
 
-@dataclass
-class UserLoadMatch:
+class UserLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class UserListMatch:
-    address: Optional[dict] = None
-    company: Optional[dict] = None
-    email: Optional[str] = None
-    id: Optional[int] = None
-    name: Optional[str] = None
-    phone: Optional[str] = None
-    username: Optional[str] = None
-    website: Optional[str] = None
-
+class UserListMatch(TypedDict, total=False):
+    address: dict
+    company: dict
+    email: str
+    id: int
+    name: str
+    phone: str
+    username: str
+    website: str

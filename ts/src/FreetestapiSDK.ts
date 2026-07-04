@@ -205,28 +205,14 @@ class FreetestapiSDK {
 
 
 
-  _product?: ProductEntity
-
-  // Idiomatic facade: `client.product.list()` / `client.product.load({ id })`.
-  get product(): ProductEntity {
-    return (this._product ??= new ProductEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.product` instead. */
+  // Entity access: `client.Product().list()` / `client.Product().load({ id })`.
   Product(data?: any) {
     const self = this
     return new ProductEntity(self,data)
   }
 
 
-  _user?: UserEntity
-
-  // Idiomatic facade: `client.user.list()` / `client.user.load({ id })`.
-  get user(): UserEntity {
-    return (this._user ??= new UserEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.user` instead. */
+  // Entity access: `client.User().list()` / `client.User().load({ id })`.
   User(data?: any) {
     const self = this
     return new UserEntity(self,data)

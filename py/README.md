@@ -31,14 +31,16 @@ from freetestapi_sdk import FreetestapiSDK
 client = FreetestapiSDK()
 ```
 
-### 2. List products
+### 2. List product records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.product.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    products = client.Product().list({})
+    for product in products:
+        print(product)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FreetestapiSDK.test()
 
-result = client.product.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+product = client.Product().load({"id": "test01"})
+# product contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -164,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
 | `Product` | `(data) -> ProductEntity` | Create a Product entity instance. |
-| `User` | `(data) -> UserEntity` | Create a User entity instance. |
+| `User` | `(data) -> UserEntity` | Create an User entity instance. |
 
 ### Entity interface
 
@@ -247,7 +250,7 @@ API path: `/users`
 
 ### Product
 
-Create an instance: `const product = client.product`
+Create an instance: `product = client.Product()`
 
 #### Operations
 
@@ -272,14 +275,14 @@ Create an instance: `const product = client.product`
 
 #### Example: List
 
-```ts
-const products = await client.product.list()
+```python
+products = client.Product().list({})
 ```
 
 
 ### User
 
-Create an instance: `const user = client.user`
+Create an instance: `user = client.User()`
 
 #### Operations
 
@@ -303,14 +306,14 @@ Create an instance: `const user = client.user`
 
 #### Example: Load
 
-```ts
-const user = await client.user.load({ id: 'user_id' })
+```python
+user = client.User().load({"id": "user_id"})
 ```
 
 #### Example: List
 
-```ts
-const users = await client.user.list()
+```python
+users = client.User().list({})
 ```
 
 
@@ -384,7 +387,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-product = client.product
+product = client.Product()
 product.load({"id": "example_id"})
 
 # product.data_get() now returns the loaded product data

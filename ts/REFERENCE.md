@@ -121,7 +121,7 @@ Alias for `FreetestapiSDK.test()`.
 ## ProductEntity
 
 ```ts
-const product = client.product
+const product = client.Product()
 ```
 
 ### Fields
@@ -146,7 +146,7 @@ const product = client.product
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.product.list()
+const results = await client.Product().list()
 ```
 
 ### Common Methods
@@ -180,7 +180,7 @@ Return a copy of the entity options.
 ## UserEntity
 
 ```ts
-const user = client.user
+const user = client.User()
 ```
 
 ### Fields
@@ -203,7 +203,7 @@ const user = client.user
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.user.list()
+const results = await client.User().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -211,7 +211,7 @@ const results = await client.user.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.user.load({ id: 'user_id' })
+const result = await client.User().load({ id: 'user_id' })
 ```
 
 ### Common Methods

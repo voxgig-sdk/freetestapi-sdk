@@ -29,18 +29,16 @@ require_once 'freetestapi_sdk.php';
 $client = new FreetestapiSDK();
 ```
 
-### 2. List products
+### 2. List product records
 
 ```php
 try {
-    $result = $client->product()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Product records — iterate directly.
+    $products = $client->Product()->list();
+    foreach ($products as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = FreetestapiSDK::test();
+$client = FreetestapiSDK::test([
+    "entity" => ["product" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->product()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$product = $client->Product()->load(["id" => "test01"]);
+print_r($product);
 ```
 
 ### Use a custom fetch function
@@ -172,7 +174,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
 | `Product` | `($data): ProductEntity` | Create a Product entity instance. |
-| `User` | `($data): UserEntity` | Create a User entity instance. |
+| `User` | `($data): UserEntity` | Create an User entity instance. |
 
 ### Entity interface
 
@@ -255,7 +257,7 @@ API path: `/users`
 
 ### Product
 
-Create an instance: `const product = client.product`
+Create an instance: `$product = $client->Product();`
 
 #### Operations
 
@@ -280,14 +282,15 @@ Create an instance: `const product = client.product`
 
 #### Example: List
 
-```ts
-const products = await client.product.list()
+```php
+// list() returns an array of Product records (throws on error).
+$products = $client->Product()->list();
 ```
 
 
 ### User
 
-Create an instance: `const user = client.user`
+Create an instance: `$user = $client->User();`
 
 #### Operations
 
@@ -311,14 +314,16 @@ Create an instance: `const user = client.user`
 
 #### Example: Load
 
-```ts
-const user = await client.user.load({ id: 'user_id' })
+```php
+// load() returns the bare User record (throws on error).
+$user = $client->User()->load(["id" => "user_id"]);
 ```
 
 #### Example: List
 
-```ts
-const users = await client.user.list()
+```php
+// list() returns an array of User records (throws on error).
+$users = $client->User()->list();
 ```
 
 
@@ -393,7 +398,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$product = $client->product();
+$product = $client->Product();
 $product->load(["id" => "example_id"]);
 
 // $product->dataGet() now returns the loaded product data

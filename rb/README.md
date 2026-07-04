@@ -28,16 +28,14 @@ require_relative "Freetestapi_sdk"
 client = FreetestapiSDK.new
 ```
 
-### 2. List products
+### 2. List product records
 
 ```ruby
 begin
-  result = client.product.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Product records — iterate directly.
+  products = client.Product.list
+  products.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = FreetestapiSDK.test
+client = FreetestapiSDK.test({
+  "entity" => { "product" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.product.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+product = client.Product.load({ "id" => "test01" })
+puts product
 ```
 
 ### Use a custom fetch function
@@ -168,7 +170,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
 | `Product` | `(data) -> ProductEntity` | Create a Product entity instance. |
-| `User` | `(data) -> UserEntity` | Create a User entity instance. |
+| `User` | `(data) -> UserEntity` | Create an User entity instance. |
 
 ### Entity interface
 
@@ -250,7 +252,7 @@ API path: `/users`
 
 ### Product
 
-Create an instance: `const product = client.product`
+Create an instance: `product = client.Product`
 
 #### Operations
 
@@ -275,14 +277,15 @@ Create an instance: `const product = client.product`
 
 #### Example: List
 
-```ts
-const products = await client.product.list()
+```ruby
+# list returns an Array of Product records (raises on error).
+products = client.Product.list
 ```
 
 
 ### User
 
-Create an instance: `const user = client.user`
+Create an instance: `user = client.User`
 
 #### Operations
 
@@ -306,14 +309,16 @@ Create an instance: `const user = client.user`
 
 #### Example: Load
 
-```ts
-const user = await client.user.load({ id: 'user_id' })
+```ruby
+# load returns the bare User record (raises on error).
+user = client.User.load({ "id" => "user_id" })
 ```
 
 #### Example: List
 
-```ts
-const users = await client.user.list()
+```ruby
+# list returns an Array of User records (raises on error).
+users = client.User.list
 ```
 
 
@@ -388,7 +393,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-product = client.product
+product = client.Product
 product.load({ "id" => "example_id" })
 
 # product.data_get now returns the loaded product data
