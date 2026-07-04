@@ -3,6 +3,8 @@
 import { ProductEntity } from './entity/ProductEntity'
 import { UserEntity } from './entity/UserEntity'
 
+export type * from './FreetestapiTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class FreetestapiSDK {
 
 
 
+  _product?: ProductEntity
+
+  // Idiomatic facade: `client.product.list()` / `client.product.load({ id })`.
+  get product(): ProductEntity {
+    return (this._product ??= new ProductEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.product` instead. */
   Product(data?: any) {
     const self = this
     return new ProductEntity(self,data)
   }
 
 
+  _user?: UserEntity
+
+  // Idiomatic facade: `client.user.list()` / `client.user.load({ id })`.
+  get user(): UserEntity {
+    return (this._user ??= new UserEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.user` instead. */
   User(data?: any) {
     const self = this
     return new UserEntity(self,data)

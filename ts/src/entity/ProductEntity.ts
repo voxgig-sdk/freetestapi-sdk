@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Product,
+  ProductListMatch,
+} from '../FreetestapiTypes'
 
 // TODO: needs Entity superclass
-class ProductEntity extends FreetestapiEntityBase {
+class ProductEntity extends FreetestapiEntityBase<Product> {
 
   constructor(client: FreetestapiSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class ProductEntity extends FreetestapiEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: ProductListMatch, ctrl?: Control): Promise<Product[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class ProductEntity extends FreetestapiEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Product[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

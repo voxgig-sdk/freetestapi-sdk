@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'FREETESTAPI_TEST_USER_ENTID': idmap,
     'FREETESTAPI_TEST_LIVE': 'FALSE',
     'FREETESTAPI_TEST_EXPLAIN': 'FALSE',
-    'FREETESTAPI_APIKEY': 'NONE',
   })
 
   idmap = env['FREETESTAPI_TEST_USER_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FreetestapiSDK(merge([
       {
-        apikey: env.FREETESTAPI_APIKEY,
       },
       extra
     ]))

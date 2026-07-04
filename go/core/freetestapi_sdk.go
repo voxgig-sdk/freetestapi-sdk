@@ -245,11 +245,17 @@ func (sdk *FreetestapiSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// Product returns a Product entity bound to this client.
+// Idiomatic usage: client.Product(nil).List(nil, nil) or
+// client.Product(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FreetestapiSDK) Product(data map[string]any) FreetestapiEntity {
 	return NewProductEntityFunc(sdk, data)
 }
 
 
+// User returns a User entity bound to this client.
+// Idiomatic usage: client.User(nil).List(nil, nil) or
+// client.User(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FreetestapiSDK) User(data map[string]any) FreetestapiEntity {
 	return NewUserEntityFunc(sdk, data)
 }

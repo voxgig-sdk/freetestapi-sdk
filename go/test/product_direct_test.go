@@ -93,14 +93,12 @@ func productDirectSetup(mockres any) *productDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FREETESTAPI_TEST_PRODUCT_ENTID": map[string]any{},
 		"FREETESTAPI_TEST_LIVE":    "FALSE",
-		"FREETESTAPI_APIKEY":       "NONE",
 	})
 
 	live := env["FREETESTAPI_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["FREETESTAPI_APIKEY"],
 		}
 		client := sdk.NewFreetestapiSDK(mergedOpts)
 

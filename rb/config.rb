@@ -15,9 +15,6 @@ module FreetestapiConfig
       },
       "options" => {
         "base" => "https://freetestapi.com/api/v1",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -288,6 +285,7 @@ module FreetestapiConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },

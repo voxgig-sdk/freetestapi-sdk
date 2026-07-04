@@ -135,7 +135,6 @@ func userBasicSetup(extra map[string]any) *entityTestSetup {
 		"FREETESTAPI_TEST_USER_ENTID": idmap,
 		"FREETESTAPI_TEST_LIVE":      "FALSE",
 		"FREETESTAPI_TEST_EXPLAIN":   "FALSE",
-		"FREETESTAPI_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FREETESTAPI_TEST_USER_ENTID"])
@@ -146,7 +145,6 @@ func userBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FREETESTAPI_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["FREETESTAPI_APIKEY"],
 			},
 			extra,
 		})
