@@ -128,16 +128,16 @@ const product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `price` | ``$NUMBER`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `stock` | ``$INTEGER`` | No |  |
+| `brand` | `string` | No |  |
+| `category` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `number` | No |  |
+| `image` | `string` | No |  |
+| `name` | `string` | No |  |
+| `price` | `number` | No |  |
+| `rating` | `number` | No |  |
+| `stock` | `number` | No |  |
 
 ### Operations
 
@@ -187,14 +187,14 @@ const user = client.User()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `phone` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
+| `address` | `Record<string, any>` | No |  |
+| `company` | `Record<string, any>` | No |  |
+| `email` | `string` | No |  |
+| `id` | `number` | No |  |
+| `name` | `string` | No |  |
+| `phone` | `string` | No |  |
+| `username` | `string` | No |  |
+| `website` | `string` | No |  |
 
 ### Operations
 
@@ -211,7 +211,7 @@ const results = await client.User().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.User().load({ id: 'user_id' })
+const result = await client.User().load({ id: 1 })
 ```
 
 ### Common Methods

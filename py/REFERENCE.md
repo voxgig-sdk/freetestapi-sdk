@@ -91,25 +91,25 @@ product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `price` | ``$NUMBER`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `stock` | ``$INTEGER`` | No |  |
+| `brand` | `str` | No |  |
+| `category` | `str` | No |  |
+| `created_at` | `str` | No |  |
+| `description` | `str` | No |  |
+| `id` | `int` | No |  |
+| `image` | `str` | No |  |
+| `name` | `str` | No |  |
+| `price` | `float` | No |  |
+| `rating` | `float` | No |  |
+| `stock` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Product().list({})
+results = client.Product().list()
 for product in results:
     print(product)
 ```
@@ -153,23 +153,23 @@ user = client.User()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `phone` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
+| `address` | `dict` | No |  |
+| `company` | `dict` | No |  |
+| `email` | `str` | No |  |
+| `id` | `int` | No |  |
+| `name` | `str` | No |  |
+| `phone` | `str` | No |  |
+| `username` | `str` | No |  |
+| `website` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.User().list({})
+results = client.User().list()
 for user in results:
     print(user)
 ```

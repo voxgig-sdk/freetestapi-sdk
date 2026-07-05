@@ -53,7 +53,7 @@ Product = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Product#list (any subset of Product fields).
+# Request payload for Product#list.
 #
 # @!attribute [rw] brand
 #   @return [String, nil]
@@ -144,7 +144,7 @@ UserLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for User#list (any subset of User fields).
+# Request payload for User#list.
 #
 # @!attribute [rw] address
 #   @return [Hash, nil]

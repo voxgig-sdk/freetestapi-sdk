@@ -18,7 +18,18 @@ export interface Product {
   stock?: number
 }
 
-export type ProductListMatch = Partial<Product>
+export interface ProductListMatch {
+  brand?: string
+  category?: string
+  created_at?: string
+  description?: string
+  id?: number
+  image?: string
+  name?: string
+  price?: number
+  rating?: number
+  stock?: number
+}
 
 export interface User {
   address?: Record<string, any>
@@ -35,5 +46,14 @@ export interface UserLoadMatch {
   id: number
 }
 
-export type UserListMatch = Partial<User>
+export interface UserListMatch {
+  address?: Record<string, any>
+  company?: Record<string, any>
+  email?: string
+  id?: number
+  name?: string
+  phone?: string
+  username?: string
+  website?: string
+}
 

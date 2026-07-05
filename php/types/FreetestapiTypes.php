@@ -27,7 +27,7 @@ class Product
     public ?int $stock = null;
 }
 
-/** Match filter for Product#list (any subset of Product fields). */
+/** Request payload for Product#list. */
 class ProductListMatch
 {
     public ?string $brand = null;
@@ -61,7 +61,7 @@ class UserLoadMatch
     public int $id;
 }
 
-/** Match filter for User#list (any subset of User fields). */
+/** Request payload for User#list. */
 class UserListMatch
 {
     public ?array $address = null;

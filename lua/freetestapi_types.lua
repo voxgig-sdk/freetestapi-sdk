@@ -19,6 +19,16 @@
 ---@field stock? number
 
 ---@class ProductListMatch
+---@field brand? string
+---@field category? string
+---@field created_at? string
+---@field description? string
+---@field id? number
+---@field image? string
+---@field name? string
+---@field price? number
+---@field rating? number
+---@field stock? number
 
 ---@class User
 ---@field address? table
@@ -34,6 +44,14 @@
 ---@field id number
 
 ---@class UserListMatch
+---@field address? table
+---@field company? table
+---@field email? string
+---@field id? number
+---@field name? string
+---@field phone? string
+---@field username? string
+---@field website? string
 
 local M = {}
 

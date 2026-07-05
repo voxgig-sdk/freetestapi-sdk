@@ -8,7 +8,7 @@ Complete API reference for the Freetestapi Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'freetestapi_sdk'
+require_relative 'Freetestapi_sdk'
 
 client = FreetestapiSDK.new(options)
 ```
@@ -97,25 +97,25 @@ product = client.Product
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `price` | ``$NUMBER`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `stock` | ``$INTEGER`` | No |  |
+| `brand` | `String` | No |  |
+| `category` | `String` | No |  |
+| `created_at` | `String` | No |  |
+| `description` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `image` | `String` | No |  |
+| `name` | `String` | No |  |
+| `price` | `Float` | No |  |
+| `rating` | `Float` | No |  |
+| `stock` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Product.list(nil)
+results = client.Product.list
 ```
 
 ### Common Methods
@@ -158,23 +158,23 @@ user = client.User
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `phone` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
+| `address` | `Hash` | No |  |
+| `company` | `Hash` | No |  |
+| `email` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `name` | `String` | No |  |
+| `phone` | `String` | No |  |
+| `username` | `String` | No |  |
+| `website` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.User.list(nil)
+results = client.User.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

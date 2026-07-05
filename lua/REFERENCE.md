@@ -94,16 +94,16 @@ local product = client:Product(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `price` | ``$NUMBER`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `stock` | ``$INTEGER`` | No |  |
+| `brand` | `string` | No |  |
+| `category` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `number` | No |  |
+| `image` | `string` | No |  |
+| `name` | `string` | No |  |
+| `price` | `number` | No |  |
+| `rating` | `number` | No |  |
+| `stock` | `number` | No |  |
 
 ### Operations
 
@@ -155,14 +155,14 @@ local user = client:User(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `phone` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
+| `address` | `table` | No |  |
+| `company` | `table` | No |  |
+| `email` | `string` | No |  |
+| `id` | `number` | No |  |
+| `name` | `string` | No |  |
+| `phone` | `string` | No |  |
+| `username` | `string` | No |  |
+| `website` | `string` | No |  |
 
 ### Operations
 

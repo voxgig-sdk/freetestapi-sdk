@@ -101,16 +101,16 @@ product := client.Product(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | No |  |
-| `category` | ``$STRING`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `price` | ``$NUMBER`` | No |  |
-| `rating` | ``$NUMBER`` | No |  |
-| `stock` | ``$INTEGER`` | No |  |
+| `brand` | `string` | No |  |
+| `category` | `string` | No |  |
+| `created_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `int` | No |  |
+| `image` | `string` | No |  |
+| `name` | `string` | No |  |
+| `price` | `float64` | No |  |
+| `rating` | `float64` | No |  |
+| `stock` | `int` | No |  |
 
 ### Operations
 
@@ -156,14 +156,14 @@ user := client.User(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$OBJECT`` | No |  |
-| `company` | ``$OBJECT`` | No |  |
-| `email` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `phone` | ``$STRING`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
+| `address` | `map[string]any` | No |  |
+| `company` | `map[string]any` | No |  |
+| `email` | `string` | No |  |
+| `id` | `int` | No |  |
+| `name` | `string` | No |  |
+| `phone` | `string` | No |  |
+| `username` | `string` | No |  |
+| `website` | `string` | No |  |
 
 ### Operations
 

@@ -22,8 +22,7 @@ type Product struct {
 	Stock *int `json:"stock,omitempty"`
 }
 
-// ProductListMatch mirrors the product fields as an all-optional match
-// filter (Go analog of Partial<Product>).
+// ProductListMatch is the typed request payload for Product.ListTyped.
 type ProductListMatch struct {
 	Brand *string `json:"brand,omitempty"`
 	Category *string `json:"category,omitempty"`
@@ -54,8 +53,7 @@ type UserLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// UserListMatch mirrors the user fields as an all-optional match
-// filter (Go analog of Partial<User>).
+// UserListMatch is the typed request payload for User.ListTyped.
 type UserListMatch struct {
 	Address *map[string]any `json:"address,omitempty"`
 	Company *map[string]any `json:"company,omitempty"`
