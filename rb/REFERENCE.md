@@ -182,7 +182,7 @@ results = client.User.list
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.User.load({ "id" => "user_id" })
+result = client.User.load({ "id" => 1 })
 ```
 
 ### Common Methods

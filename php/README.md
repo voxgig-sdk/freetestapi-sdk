@@ -346,7 +346,7 @@ Create an instance: `$user = $client->User();`
 
 ```php
 // load() returns the bare User record (throws on error).
-$user = $client->User()->load(["id" => "user_id"]);
+$user = $client->User()->load(["id" => 1]);
 ```
 
 #### Example: List

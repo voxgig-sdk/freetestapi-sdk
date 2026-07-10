@@ -15,9 +15,9 @@ main: {
           url: "https://freetestapi.com/api/v1"
         }
       ]
+      summary: "FreeTestAPI provides over 25 dummy APIs to streamline the process of API testing for developers."
       title: "FreeTestAPI"
       version: "1.0.0"
+      website: "https://freetestapi.com"
     }
   }
-}
-

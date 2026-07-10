@@ -181,7 +181,7 @@ $results = $client->User()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->User()->load(["id" => "user_id"]);
+$result = $client->User()->load(["id" => 1]);
 ```
 
 ### Common Methods

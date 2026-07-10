@@ -340,7 +340,7 @@ Create an instance: `user = client.User()`
 #### Example: Load
 
 ```python
-user = client.User().load({"id": "user_id"})
+user = client.User().load({"id": 1})
 ```
 
 #### Example: List

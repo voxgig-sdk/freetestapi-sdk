@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -479,14 +476,17 @@
           "url": "https://freetestapi.com/"
         },
         "description": "FreeTestAPI provides over 25 dummy APIs to streamline the process of API testing for developers. It allows users to access mock data for various applications, ensuring seamless workflow integration.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://freetestapi.com/api/v1"
           }
         ],
+        "summary": "FreeTestAPI provides over 25 dummy APIs to streamline the process of API testing for developers.",
         "title": "FreeTestAPI",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://freetestapi.com"
       },
       "option": {},
       "target": {
@@ -539,6 +539,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -589,6 +592,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -336,7 +336,7 @@ Create an instance: `user = client.User`
 
 ```ruby
 # load returns the bare User record (raises on error).
-user = client.User.load({ "id" => "user_id" })
+user = client.User.load({ "id" => 1 })
 ```
 
 #### Example: List
