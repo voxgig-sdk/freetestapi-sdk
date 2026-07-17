@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Freetestapi SDK exists test
 
 local sdk = require("freetestapi_sdk")
 
