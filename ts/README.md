@@ -35,7 +35,9 @@ const client = new FreetestapiSDK()
 
 ### 2. List product records
 
-`list()` resolves to an array of Product objects — iterate it directly:
+`list()` resolves to an array of Product ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const products = await client.Product().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = FreetestapiSDK.test()
 
 const product = await client.Product().list()
-// product is a bare entity populated with mock response data
+// product is the entity, populated with mock response data
+// — call product.data() for the record itself
 console.log(product)
 ```
 
@@ -289,7 +292,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `brand` |  |
 | `category` |  |
-| `created_at` |  |
+| `createdAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
@@ -340,7 +343,7 @@ Create an instance: `const product = client.Product()`
 | --- | --- | --- |
 | `brand` | `string` |  |
 | `category` | `string` |  |
-| `created_at` | `string` |  |
+| `createdAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FreetestapiControl
-from core.error import FreetestapiError
-from core.result import FreetestapiResult
-from core.spec import FreetestapiSpec
+from freetestapi_sdk.config import make_config
+from freetestapi_sdk.features import _make_feature
+from freetestapi_sdk.core.control import FreetestapiControl
+from freetestapi_sdk.core.error import FreetestapiError
+from freetestapi_sdk.core.result import FreetestapiResult
+from freetestapi_sdk.core.spec import FreetestapiSpec
 
 
 # True when this SDK was generated with the named feature.

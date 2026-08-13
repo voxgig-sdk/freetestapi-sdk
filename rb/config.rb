@@ -42,7 +42,7 @@ module FreetestapiConfig
             },
             {
               "active" => true,
-              "name" => "created_at",
+              "name" => "createdAt",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 2,
@@ -135,6 +135,7 @@ module FreetestapiConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/products",
                   "parts" => [
@@ -250,6 +251,7 @@ module FreetestapiConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/users",
                   "parts" => [
@@ -289,6 +291,7 @@ module FreetestapiConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/users/{id}",
                   "parts" => [

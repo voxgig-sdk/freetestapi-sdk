@@ -221,9 +221,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local product, err = client:Product():load()
+    local user, err = client:User():load({ id = "example_id" })
     if err then error(err) end
-    -- product is the loaded record
+    -- user is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -236,7 +236,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `brand` |  |
 | `category` |  |
-| `created_at` |  |
+| `createdAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
@@ -287,7 +287,7 @@ Create an instance: `local product = client:Product(nil)`
 | --- | --- | --- |
 | `brand` | `string` |  |
 | `category` | `string` |  |
-| `created_at` | `string` |  |
+| `createdAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |

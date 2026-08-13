@@ -16,11 +16,11 @@
 import pytest
 
 from freetestapi_sdk import FreetestapiSDK
-from core.error import FreetestapiError
-from core.result import FreetestapiResult
-from core.response import FreetestapiResponse
-from core.spec import FreetestapiSpec
-from feature.base_feature import FreetestapiBaseFeature
+from freetestapi_sdk.core.error import FreetestapiError
+from freetestapi_sdk.core.result import FreetestapiResult
+from freetestapi_sdk.core.response import FreetestapiResponse
+from freetestapi_sdk.core.spec import FreetestapiSpec
+from freetestapi_sdk.feature.base_feature import FreetestapiBaseFeature
 
 
 def _client():

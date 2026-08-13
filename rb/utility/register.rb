@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FreetestapiUtility.registrar = ->(u) {
   u.prepare_params = FreetestapiUtilities::PrepareParams
   u.prepare_path = FreetestapiUtilities::PreparePath
   u.prepare_query = FreetestapiUtilities::PrepareQuery
+  u.graphql_body = FreetestapiUtilities::GraphqlBody
+  u.graphql_errors = FreetestapiUtilities::GraphqlErrors
   u.result_basic = FreetestapiUtilities::ResultBasic
   u.result_body = FreetestapiUtilities::ResultBody
   u.result_headers = FreetestapiUtilities::ResultHeaders

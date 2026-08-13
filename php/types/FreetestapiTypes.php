@@ -17,7 +17,7 @@ class Product
 {
     public ?string $brand = null;
     public ?string $category = null;
-    public ?string $created_at = null;
+    public ?string $createdAt = null;
     public ?string $description = null;
     public ?int $id = null;
     public ?string $image = null;
@@ -32,7 +32,7 @@ class ProductListMatch
 {
     public ?string $brand = null;
     public ?string $category = null;
-    public ?string $created_at = null;
+    public ?string $createdAt = null;
     public ?string $description = null;
     public ?int $id = null;
     public ?string $image = null;

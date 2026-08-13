@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Freetestapi SDK exists test
 
 import pytest
 from freetestapi_sdk import FreetestapiSDK

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from freetestapi_sdk.utility.voxgig_struct import voxgig_struct as vs
 from freetestapi_sdk import FreetestapiSDK
-from core import helpers
+from freetestapi_sdk.core import helpers
 from test import runner
 
 

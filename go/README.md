@@ -265,7 +265,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"brand"` |  |
 | `"category"` |  |
-| `"created_at"` |  |
+| `"createdAt"` |  |
 | `"description"` |  |
 | `"id"` |  |
 | `"image"` |  |
@@ -316,7 +316,7 @@ Create an instance: `product := client.Product(nil)`
 | --- | --- | --- |
 | `brand` | `string` |  |
 | `category` | `string` |  |
-| `created_at` | `string` |  |
+| `createdAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |

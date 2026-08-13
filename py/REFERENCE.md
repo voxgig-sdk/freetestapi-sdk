@@ -93,7 +93,7 @@ product = client.Product()
 | --- | --- | --- | --- |
 | `brand` | `str` | No |  |
 | `category` | `str` | No |  |
-| `created_at` | `str` | No |  |
+| `createdAt` | `str` | No |  |
 | `description` | `str` | No |  |
 | `id` | `int` | No |  |
 | `image` | `str` | No |  |

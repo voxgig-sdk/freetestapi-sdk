@@ -130,7 +130,7 @@ const product = client.Product()
 | --- | --- | --- | --- |
 | `brand` | `string` | No |  |
 | `category` | `string` | No |  |
-| `created_at` | `string` | No |  |
+| `createdAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `number` | No |  |
 | `image` | `string` | No |  |

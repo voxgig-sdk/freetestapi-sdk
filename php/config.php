@@ -47,7 +47,7 @@ class FreetestapiConfig
             ],
             [
               'active' => true,
-              'name' => 'created_at',
+              'name' => 'createdAt',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 2,
@@ -140,6 +140,7 @@ class FreetestapiConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/products',
                   'parts' => [
@@ -255,6 +256,7 @@ class FreetestapiConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/users',
                   'parts' => [
@@ -294,6 +296,7 @@ class FreetestapiConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/users/{id}',
                   'parts' => [

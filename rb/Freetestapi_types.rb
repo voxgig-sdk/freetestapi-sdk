@@ -16,7 +16,7 @@
 # @!attribute [rw] category
 #   @return [String, nil]
 #
-# @!attribute [rw] created_at
+# @!attribute [rw] createdAt
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -42,7 +42,7 @@
 Product = Struct.new(
   :brand,
   :category,
-  :created_at,
+  :createdAt,
   :description,
   :id,
   :image,
@@ -61,7 +61,7 @@ Product = Struct.new(
 # @!attribute [rw] category
 #   @return [String, nil]
 #
-# @!attribute [rw] created_at
+# @!attribute [rw] createdAt
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -87,7 +87,7 @@ Product = Struct.new(
 ProductListMatch = Struct.new(
   :brand,
   :category,
-  :created_at,
+  :createdAt,
   :description,
   :id,
   :image,

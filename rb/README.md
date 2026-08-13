@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = FreetestapiSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 product = client.Product.list()
 puts product
 ```
@@ -240,7 +241,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `brand` |  |
 | `category` |  |
-| `created_at` |  |
+| `createdAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
@@ -291,7 +292,7 @@ Create an instance: `product = client.Product`
 | --- | --- | --- |
 | `brand` | `String` |  |
 | `category` | `String` |  |
-| `created_at` | `String` |  |
+| `createdAt` | `String` |  |
 | `description` | `String` |  |
 | `id` | `Integer` |  |
 | `image` | `String` |  |
@@ -335,7 +336,7 @@ Create an instance: `user = client.User`
 #### Example: Load
 
 ```ruby
-# load returns the bare User record (raises on error).
+# load returns the ENTITY — call data_get for the User record (raises on error).
 user = client.User.load({ "id" => 1 })
 ```
 

@@ -9,7 +9,7 @@
 ---@class Product
 ---@field brand? string
 ---@field category? string
----@field created_at? string
+---@field createdAt? string
 ---@field description? string
 ---@field id? number
 ---@field image? string
@@ -21,7 +21,7 @@
 ---@class ProductListMatch
 ---@field brand? string
 ---@field category? string
----@field created_at? string
+---@field createdAt? string
 ---@field description? string
 ---@field id? number
 ---@field image? string

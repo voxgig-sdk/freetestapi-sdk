@@ -8,7 +8,7 @@
 export interface Product {
   brand?: string
   category?: string
-  created_at?: string
+  createdAt?: string
   description?: string
   id?: number
   image?: string
@@ -21,7 +21,7 @@ export interface Product {
 export interface ProductListMatch {
   brand?: string
   category?: string
-  created_at?: string
+  createdAt?: string
   description?: string
   id?: number
   image?: string

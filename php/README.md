@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = FreetestapiSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $product = $client->Product()->list();
 print_r($product);
 ```
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -250,7 +251,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `brand` |  |
 | `category` |  |
-| `created_at` |  |
+| `createdAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
@@ -301,7 +302,7 @@ Create an instance: `$product = $client->Product();`
 | --- | --- | --- |
 | `brand` | `string` |  |
 | `category` | `string` |  |
-| `created_at` | `string` |  |
+| `createdAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |
@@ -345,7 +346,7 @@ Create an instance: `$user = $client->User();`
 #### Example: Load
 
 ```php
-// load() returns the bare User record (throws on error).
+// load() returns the ENTITY — call data_get() for the User record (throws on error).
 $user = $client->User()->load(["id" => 1]);
 ```
 

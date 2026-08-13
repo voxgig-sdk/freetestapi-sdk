@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ FreetestapiUtility::setRegistrar(function (FreetestapiUtility $u): void {
     $u->prepare_params = [FreetestapiPrepareParams::class, 'call'];
     $u->prepare_path = [FreetestapiPreparePath::class, 'call'];
     $u->prepare_query = [FreetestapiPrepareQuery::class, 'call'];
+    $u->graphql_body = [FreetestapiGraphql::class, 'body'];
+    $u->graphql_errors = [FreetestapiGraphql::class, 'errors'];
     $u->result_basic = [FreetestapiResultBasic::class, 'call'];
     $u->result_body = [FreetestapiResultBody::class, 'call'];
     $u->result_headers = [FreetestapiResultHeaders::class, 'call'];
