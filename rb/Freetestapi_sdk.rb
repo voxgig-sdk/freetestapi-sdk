@@ -28,7 +28,7 @@ class FreetestapiSDK
     utility = FreetestapiUtility.new
     @_utility = utility
 
-    config = FreetestapiConfig.make_config
+    config = FreetestapiConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

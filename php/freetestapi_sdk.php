@@ -40,7 +40,7 @@ class FreetestapiSDK
         $utility = new FreetestapiUtility();
         $this->_utility = $utility;
 
-        $config = FreetestapiConfig::make_config();
+        $config = FreetestapiConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -23,8 +23,8 @@ class FreetestapiSDK:
         utility = FreetestapiUtility()
         self._utility = utility
 
-        from freetestapi_sdk.config import make_config
-        config = make_config()
+        from freetestapi_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

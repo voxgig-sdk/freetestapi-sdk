@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from freetestapi_sdk.config import make_config
+from freetestapi_sdk.config import shared_config
 from freetestapi_sdk.features import _make_feature
 from freetestapi_sdk.core.control import FreetestapiControl
 from freetestapi_sdk.core.error import FreetestapiError
@@ -24,7 +24,7 @@ from freetestapi_sdk.core.spec import FreetestapiSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
