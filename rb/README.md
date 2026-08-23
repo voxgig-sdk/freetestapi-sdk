@@ -239,16 +239,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `brand` |  |
-| `category` |  |
-| `createdAt` |  |
-| `description` |  |
-| `id` |  |
-| `image` |  |
-| `name` |  |
-| `price` |  |
-| `rating` |  |
-| `stock` |  |
+| `brand` | Brand name of the product |
+| `category` | Product category |
+| `createdAt` | Product creation timestamp |
+| `description` | Detailed description of the product |
+| `id` | Unique identifier for the product |
+| `image` | URL to product image |
+| `name` | Name of the product |
+| `price` | Price of the product in USD |
+| `rating` | Average product rating (0-5) |
+| `stock` | Available stock quantity |
 
 Operations: List.
 
@@ -260,12 +260,12 @@ API path: `/products`
 | --- | --- |
 | `address` |  |
 | `company` |  |
-| `email` |  |
-| `id` |  |
-| `name` |  |
-| `phone` |  |
-| `username` |  |
-| `website` |  |
+| `email` | Email address of the user |
+| `id` | Unique identifier for the user |
+| `name` | Full name of the user |
+| `phone` | Phone number of the user |
+| `username` | Username of the user |
+| `website` | Personal website URL |
 
 Operations: List, Load.
 
@@ -290,16 +290,16 @@ Create an instance: `product = client.Product`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `brand` | `String` |  |
-| `category` | `String` |  |
-| `createdAt` | `String` |  |
-| `description` | `String` |  |
-| `id` | `Integer` |  |
-| `image` | `String` |  |
-| `name` | `String` |  |
-| `price` | `Float` |  |
-| `rating` | `Float` |  |
-| `stock` | `Integer` |  |
+| `brand` | `String` | Brand name of the product |
+| `category` | `String` | Product category |
+| `createdAt` | `String` | Product creation timestamp |
+| `description` | `String` | Detailed description of the product |
+| `id` | `Integer` | Unique identifier for the product |
+| `image` | `String` | URL to product image |
+| `name` | `String` | Name of the product |
+| `price` | `Float` | Price of the product in USD |
+| `rating` | `Float` | Average product rating (0-5) |
+| `stock` | `Integer` | Available stock quantity |
 
 #### Example: List
 
@@ -326,12 +326,12 @@ Create an instance: `user = client.User`
 | --- | --- | --- |
 | `address` | `Hash` |  |
 | `company` | `Hash` |  |
-| `email` | `String` |  |
-| `id` | `Integer` |  |
-| `name` | `String` |  |
-| `phone` | `String` |  |
-| `username` | `String` |  |
-| `website` | `String` |  |
+| `email` | `String` | Email address of the user |
+| `id` | `Integer` | Unique identifier for the user |
+| `name` | `String` | Full name of the user |
+| `phone` | `String` | Phone number of the user |
+| `username` | `String` | Username of the user |
+| `website` | `String` | Personal website URL |
 
 #### Example: Load
 

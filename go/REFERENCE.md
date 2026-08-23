@@ -102,16 +102,16 @@ fmt.Println(product.GetName()) // "product"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | `string` | No |  |
-| `category` | `string` | No |  |
-| `createdAt` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `int` | No |  |
-| `image` | `string` | No |  |
-| `name` | `string` | No |  |
-| `price` | `float64` | No |  |
-| `rating` | `float64` | No |  |
-| `stock` | `int` | No |  |
+| `brand` | `string` | No | Brand name of the product |
+| `category` | `string` | No | Product category |
+| `createdAt` | `string` | No | Product creation timestamp |
+| `description` | `string` | No | Detailed description of the product |
+| `id` | `int` | No | Unique identifier for the product |
+| `image` | `string` | No | URL to product image |
+| `name` | `string` | No | Name of the product |
+| `price` | `float64` | No | Price of the product in USD |
+| `rating` | `float64` | No | Average product rating (0-5) |
+| `stock` | `int` | No | Available stock quantity |
 
 ### Operations
 
@@ -164,12 +164,12 @@ fmt.Println(user.GetName()) // "user"
 | --- | --- | --- | --- |
 | `address` | `map[string]any` | No |  |
 | `company` | `map[string]any` | No |  |
-| `email` | `string` | No |  |
-| `id` | `int` | No |  |
-| `name` | `string` | No |  |
-| `phone` | `string` | No |  |
-| `username` | `string` | No |  |
-| `website` | `string` | No |  |
+| `email` | `string` | No | Email address of the user |
+| `id` | `int` | No | Unique identifier for the user |
+| `name` | `string` | No | Full name of the user |
+| `phone` | `string` | No | Phone number of the user |
+| `username` | `string` | No | Username of the user |
+| `website` | `string` | No | Personal website URL |
 
 ### Operations
 

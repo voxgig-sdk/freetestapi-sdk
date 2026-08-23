@@ -91,16 +91,16 @@ product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | `str` | No |  |
-| `category` | `str` | No |  |
-| `createdAt` | `str` | No |  |
-| `description` | `str` | No |  |
-| `id` | `int` | No |  |
-| `image` | `str` | No |  |
-| `name` | `str` | No |  |
-| `price` | `float` | No |  |
-| `rating` | `float` | No |  |
-| `stock` | `int` | No |  |
+| `brand` | `str` | No | Brand name of the product |
+| `category` | `str` | No | Product category |
+| `createdAt` | `str` | No | Product creation timestamp |
+| `description` | `str` | No | Detailed description of the product |
+| `id` | `int` | No | Unique identifier for the product |
+| `image` | `str` | No | URL to product image |
+| `name` | `str` | No | Name of the product |
+| `price` | `float` | No | Price of the product in USD |
+| `rating` | `float` | No | Average product rating (0-5) |
+| `stock` | `int` | No | Available stock quantity |
 
 ### Operations
 
@@ -155,12 +155,12 @@ user = client.User()
 | --- | --- | --- | --- |
 | `address` | `dict` | No |  |
 | `company` | `dict` | No |  |
-| `email` | `str` | No |  |
-| `id` | `int` | No |  |
-| `name` | `str` | No |  |
-| `phone` | `str` | No |  |
-| `username` | `str` | No |  |
-| `website` | `str` | No |  |
+| `email` | `str` | No | Email address of the user |
+| `id` | `int` | No | Unique identifier for the user |
+| `name` | `str` | No | Full name of the user |
+| `phone` | `str` | No | Phone number of the user |
+| `username` | `str` | No | Username of the user |
+| `website` | `str` | No | Personal website URL |
 
 ### Operations
 

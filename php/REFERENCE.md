@@ -96,16 +96,16 @@ $product = $client->Product();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | `string` | No |  |
-| `category` | `string` | No |  |
-| `createdAt` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `int` | No |  |
-| `image` | `string` | No |  |
-| `name` | `string` | No |  |
-| `price` | `float` | No |  |
-| `rating` | `float` | No |  |
-| `stock` | `int` | No |  |
+| `brand` | `string` | No | Brand name of the product |
+| `category` | `string` | No | Product category |
+| `createdAt` | `string` | No | Product creation timestamp |
+| `description` | `string` | No | Detailed description of the product |
+| `id` | `int` | No | Unique identifier for the product |
+| `image` | `string` | No | URL to product image |
+| `name` | `string` | No | Name of the product |
+| `price` | `float` | No | Price of the product in USD |
+| `rating` | `float` | No | Average product rating (0-5) |
+| `stock` | `int` | No | Available stock quantity |
 
 ### Operations
 
@@ -159,12 +159,12 @@ $user = $client->User();
 | --- | --- | --- | --- |
 | `address` | `array` | No |  |
 | `company` | `array` | No |  |
-| `email` | `string` | No |  |
-| `id` | `int` | No |  |
-| `name` | `string` | No |  |
-| `phone` | `string` | No |  |
-| `username` | `string` | No |  |
-| `website` | `string` | No |  |
+| `email` | `string` | No | Email address of the user |
+| `id` | `int` | No | Unique identifier for the user |
+| `name` | `string` | No | Full name of the user |
+| `phone` | `string` | No | Phone number of the user |
+| `username` | `string` | No | Username of the user |
+| `website` | `string` | No | Personal website URL |
 
 ### Operations
 

@@ -36,60 +36,70 @@
               "active": true,
               "name": "brand",
               "req": false,
+              "short": "Brand name of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "category",
               "req": false,
+              "short": "Product category",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "createdAt",
               "req": false,
+              "short": "Product creation timestamp",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the product",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "image",
               "req": false,
+              "short": "URL to product image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "price",
               "req": false,
+              "short": "Price of the product in USD",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "rating",
               "req": false,
+              "short": "Average product rating (0-5)",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "stock",
               "req": false,
+              "short": "Available stock quantity",
               "type": "`$INTEGER`"
             }
           ],
@@ -182,36 +192,42 @@
               "active": true,
               "name": "email",
               "req": false,
+              "short": "Email address of the user",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the user",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Full name of the user",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "phone",
               "req": false,
+              "short": "Phone number of the user",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "username",
               "req": false,
+              "short": "Username of the user",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "website",
               "req": false,
+              "short": "Personal website URL",
               "type": "`$STRING`"
             }
           ],

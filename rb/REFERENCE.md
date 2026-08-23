@@ -97,16 +97,16 @@ product = client.Product
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | `String` | No |  |
-| `category` | `String` | No |  |
-| `createdAt` | `String` | No |  |
-| `description` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `image` | `String` | No |  |
-| `name` | `String` | No |  |
-| `price` | `Float` | No |  |
-| `rating` | `Float` | No |  |
-| `stock` | `Integer` | No |  |
+| `brand` | `String` | No | Brand name of the product |
+| `category` | `String` | No | Product category |
+| `createdAt` | `String` | No | Product creation timestamp |
+| `description` | `String` | No | Detailed description of the product |
+| `id` | `Integer` | No | Unique identifier for the product |
+| `image` | `String` | No | URL to product image |
+| `name` | `String` | No | Name of the product |
+| `price` | `Float` | No | Price of the product in USD |
+| `rating` | `Float` | No | Average product rating (0-5) |
+| `stock` | `Integer` | No | Available stock quantity |
 
 ### Operations
 
@@ -160,12 +160,12 @@ user = client.User
 | --- | --- | --- | --- |
 | `address` | `Hash` | No |  |
 | `company` | `Hash` | No |  |
-| `email` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `name` | `String` | No |  |
-| `phone` | `String` | No |  |
-| `username` | `String` | No |  |
-| `website` | `String` | No |  |
+| `email` | `String` | No | Email address of the user |
+| `id` | `Integer` | No | Unique identifier for the user |
+| `name` | `String` | No | Full name of the user |
+| `phone` | `String` | No | Phone number of the user |
+| `username` | `String` | No | Username of the user |
+| `website` | `String` | No | Personal website URL |
 
 ### Operations
 

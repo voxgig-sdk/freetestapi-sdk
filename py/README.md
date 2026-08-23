@@ -245,16 +245,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `brand` |  |
-| `category` |  |
-| `createdAt` |  |
-| `description` |  |
-| `id` |  |
-| `image` |  |
-| `name` |  |
-| `price` |  |
-| `rating` |  |
-| `stock` |  |
+| `brand` | Brand name of the product |
+| `category` | Product category |
+| `createdAt` | Product creation timestamp |
+| `description` | Detailed description of the product |
+| `id` | Unique identifier for the product |
+| `image` | URL to product image |
+| `name` | Name of the product |
+| `price` | Price of the product in USD |
+| `rating` | Average product rating (0-5) |
+| `stock` | Available stock quantity |
 
 Operations: List.
 
@@ -266,12 +266,12 @@ API path: `/products`
 | --- | --- |
 | `address` |  |
 | `company` |  |
-| `email` |  |
-| `id` |  |
-| `name` |  |
-| `phone` |  |
-| `username` |  |
-| `website` |  |
+| `email` | Email address of the user |
+| `id` | Unique identifier for the user |
+| `name` | Full name of the user |
+| `phone` | Phone number of the user |
+| `username` | Username of the user |
+| `website` | Personal website URL |
 
 Operations: List, Load.
 
@@ -296,16 +296,16 @@ Create an instance: `product = client.Product()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `brand` | `str` |  |
-| `category` | `str` |  |
-| `createdAt` | `str` |  |
-| `description` | `str` |  |
-| `id` | `int` |  |
-| `image` | `str` |  |
-| `name` | `str` |  |
-| `price` | `float` |  |
-| `rating` | `float` |  |
-| `stock` | `int` |  |
+| `brand` | `str` | Brand name of the product |
+| `category` | `str` | Product category |
+| `createdAt` | `str` | Product creation timestamp |
+| `description` | `str` | Detailed description of the product |
+| `id` | `int` | Unique identifier for the product |
+| `image` | `str` | URL to product image |
+| `name` | `str` | Name of the product |
+| `price` | `float` | Price of the product in USD |
+| `rating` | `float` | Average product rating (0-5) |
+| `stock` | `int` | Available stock quantity |
 
 #### Example: List
 
@@ -331,12 +331,12 @@ Create an instance: `user = client.User()`
 | --- | --- | --- |
 | `address` | `dict` |  |
 | `company` | `dict` |  |
-| `email` | `str` |  |
-| `id` | `int` |  |
-| `name` | `str` |  |
-| `phone` | `str` |  |
-| `username` | `str` |  |
-| `website` | `str` |  |
+| `email` | `str` | Email address of the user |
+| `id` | `int` | Unique identifier for the user |
+| `name` | `str` | Full name of the user |
+| `phone` | `str` | Phone number of the user |
+| `username` | `str` | Username of the user |
+| `website` | `str` | Personal website URL |
 
 #### Example: Load
 

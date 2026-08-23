@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -290,16 +290,16 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `brand` |  |
-| `category` |  |
-| `createdAt` |  |
-| `description` |  |
-| `id` |  |
-| `image` |  |
-| `name` |  |
-| `price` |  |
-| `rating` |  |
-| `stock` |  |
+| `brand` | Brand name of the product |
+| `category` | Product category |
+| `createdAt` | Product creation timestamp |
+| `description` | Detailed description of the product |
+| `id` | Unique identifier for the product |
+| `image` | URL to product image |
+| `name` | Name of the product |
+| `price` | Price of the product in USD |
+| `rating` | Average product rating (0-5) |
+| `stock` | Available stock quantity |
 
 Operations: list.
 
@@ -311,12 +311,12 @@ API path: `/products`
 | --- | --- |
 | `address` |  |
 | `company` |  |
-| `email` |  |
-| `id` |  |
-| `name` |  |
-| `phone` |  |
-| `username` |  |
-| `website` |  |
+| `email` | Email address of the user |
+| `id` | Unique identifier for the user |
+| `name` | Full name of the user |
+| `phone` | Phone number of the user |
+| `username` | Username of the user |
+| `website` | Personal website URL |
 
 Operations: list, load.
 
@@ -341,16 +341,16 @@ Create an instance: `const product = client.Product()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `brand` | `string` |  |
-| `category` | `string` |  |
-| `createdAt` | `string` |  |
-| `description` | `string` |  |
-| `id` | `number` |  |
-| `image` | `string` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `rating` | `number` |  |
-| `stock` | `number` |  |
+| `brand` | `string` | Brand name of the product |
+| `category` | `string` | Product category |
+| `createdAt` | `string` | Product creation timestamp |
+| `description` | `string` | Detailed description of the product |
+| `id` | `number` | Unique identifier for the product |
+| `image` | `string` | URL to product image |
+| `name` | `string` | Name of the product |
+| `price` | `number` | Price of the product in USD |
+| `rating` | `number` | Average product rating (0-5) |
+| `stock` | `number` | Available stock quantity |
 
 #### Example: List
 
@@ -376,12 +376,12 @@ Create an instance: `const user = client.User()`
 | --- | --- | --- |
 | `address` | `Record<string, any>` |  |
 | `company` | `Record<string, any>` |  |
-| `email` | `string` |  |
-| `id` | `number` |  |
-| `name` | `string` |  |
-| `phone` | `string` |  |
-| `username` | `string` |  |
-| `website` | `string` |  |
+| `email` | `string` | Email address of the user |
+| `id` | `number` | Unique identifier for the user |
+| `name` | `string` | Full name of the user |
+| `phone` | `string` | Phone number of the user |
+| `username` | `string` | Username of the user |
+| `website` | `string` | Personal website URL |
 
 #### Example: Load
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Freetestapi",
+			"slug": "freetestapi",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,42 +37,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "brand",
+						"short": "Brand name of the product",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "category",
+						"short": "Product category",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "createdAt",
+						"short": "Product creation timestamp",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the product",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the product",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "image",
+						"short": "URL to product image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the product",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "price",
+						"short": "Price of the product in USD",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "rating",
+						"short": "Average product rating (0-5)",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "stock",
+						"short": "Available stock quantity",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -141,26 +154,32 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "email",
+						"short": "Email address of the user",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the user",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Full name of the user",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "phone",
+						"short": "Phone number of the user",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "username",
+						"short": "Username of the user",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "website",
+						"short": "Personal website URL",
 						"type": "`$STRING`",
 					},
 				},

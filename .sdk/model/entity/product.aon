@@ -1,49 +1,69 @@
-# Entity: user
+# Entity: product
 
-main: kit: entity: user: {
+main: kit: entity: product: {
 
   alias: field: {}
 
   fields: [
     {
-      name: "address"
+      name: "brand"
       req: false
-      type: "`$OBJECT`"
+      short: "Brand name of the product"
+      type: "`$STRING`"
     }
     {
-      name: "company"
+      name: "category"
       req: false
-      type: "`$OBJECT`"
+      short: "Product category"
+      type: "`$STRING`"
     }
     {
-      name: "email"
+      name: "createdAt"
       req: false
+      short: "Product creation timestamp"
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      short: "Detailed description of the product"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the product"
       type: "`$INTEGER`"
+    }
+    {
+      name: "image"
+      req: false
+      short: "URL to product image"
+      type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the product"
       type: "`$STRING`"
     }
     {
-      name: "phone"
+      name: "price"
       req: false
-      type: "`$STRING`"
+      short: "Price of the product in USD"
+      type: "`$NUMBER`"
     }
     {
-      name: "username"
+      name: "rating"
       req: false
-      type: "`$STRING`"
+      short: "Average product rating (0-5)"
+      type: "`$NUMBER`"
     }
     {
-      name: "website"
+      name: "stock"
       req: false
-      type: "`$STRING`"
+      short: "Available stock quantity"
+      type: "`$INTEGER`"
     }
   ]
 
@@ -52,7 +72,7 @@ main: kit: entity: user: {
     name: "id"
   }
 
-  name: "user"
+  name: "product"
   op: {
     list: {
       name: "list"
@@ -60,6 +80,13 @@ main: kit: entity: user: {
         {
           args: {
             query: [
+              {
+                kind: "query"
+                name: "category"
+                orig: "category"
+                reqd: false
+                type: "`$STRING`"
+              }
               {
                 example: 10
                 kind: "query"
@@ -79,47 +106,15 @@ main: kit: entity: user: {
             ]
           }
           method: "GET"
-          orig: "/users"
+          orig: "/products"
           parts: [
-            "users"
+            "products"
           ]
           select: {
             exist: [
+              "category"
               "limit"
               "page"
-            ]
-          }
-          transform: {
-            req: "`reqdata`"
-            res: "`body`"
-          }
-        }
-      ]
-    }
-    load: {
-      name: "load"
-      points: [
-        {
-          args: {
-            params: [
-              {
-                kind: "param"
-                name: "id"
-                orig: "id"
-                reqd: true
-                type: "`$INTEGER`"
-              }
-            ]
-          }
-          method: "GET"
-          orig: "/users/{id}"
-          parts: [
-            "users"
-            "{id}"
-          ]
-          select: {
-            exist: [
-              "id"
             ]
           }
           transform: {

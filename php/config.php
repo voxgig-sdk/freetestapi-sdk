@@ -33,6 +33,9 @@ class FreetestapiConfig
         return [
             "main" => [
                 "name" => "Freetestapi",
+                "slug" => "freetestapi",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,42 +59,52 @@ class FreetestapiConfig
           'fields' => [
             [
               'name' => 'brand',
+              'short' => 'Brand name of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'category',
+              'short' => 'Product category',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'createdAt',
+              'short' => 'Product creation timestamp',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'description',
+              'short' => 'Detailed description of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique identifier for the product',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'image',
+              'short' => 'URL to product image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'name',
+              'short' => 'Name of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'price',
+              'short' => 'Price of the product in USD',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'rating',
+              'short' => 'Average product rating (0-5)',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'stock',
+              'short' => 'Available stock quantity',
               'type' => '`$INTEGER`',
             ],
           ],
@@ -163,26 +176,32 @@ class FreetestapiConfig
             ],
             [
               'name' => 'email',
+              'short' => 'Email address of the user',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique identifier for the user',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'name',
+              'short' => 'Full name of the user',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'phone',
+              'short' => 'Phone number of the user',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'username',
+              'short' => 'Username of the user',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'website',
+              'short' => 'Personal website URL',
               'type' => '`$STRING`',
             ],
           ],

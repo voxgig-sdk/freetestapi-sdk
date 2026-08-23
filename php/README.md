@@ -249,16 +249,16 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `brand` |  |
-| `category` |  |
-| `createdAt` |  |
-| `description` |  |
-| `id` |  |
-| `image` |  |
-| `name` |  |
-| `price` |  |
-| `rating` |  |
-| `stock` |  |
+| `brand` | Brand name of the product |
+| `category` | Product category |
+| `createdAt` | Product creation timestamp |
+| `description` | Detailed description of the product |
+| `id` | Unique identifier for the product |
+| `image` | URL to product image |
+| `name` | Name of the product |
+| `price` | Price of the product in USD |
+| `rating` | Average product rating (0-5) |
+| `stock` | Available stock quantity |
 
 Operations: List.
 
@@ -270,12 +270,12 @@ API path: `/products`
 | --- | --- |
 | `address` |  |
 | `company` |  |
-| `email` |  |
-| `id` |  |
-| `name` |  |
-| `phone` |  |
-| `username` |  |
-| `website` |  |
+| `email` | Email address of the user |
+| `id` | Unique identifier for the user |
+| `name` | Full name of the user |
+| `phone` | Phone number of the user |
+| `username` | Username of the user |
+| `website` | Personal website URL |
 
 Operations: List, Load.
 
@@ -300,16 +300,16 @@ Create an instance: `$product = $client->Product();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `brand` | `string` |  |
-| `category` | `string` |  |
-| `createdAt` | `string` |  |
-| `description` | `string` |  |
-| `id` | `int` |  |
-| `image` | `string` |  |
-| `name` | `string` |  |
-| `price` | `float` |  |
-| `rating` | `float` |  |
-| `stock` | `int` |  |
+| `brand` | `string` | Brand name of the product |
+| `category` | `string` | Product category |
+| `createdAt` | `string` | Product creation timestamp |
+| `description` | `string` | Detailed description of the product |
+| `id` | `int` | Unique identifier for the product |
+| `image` | `string` | URL to product image |
+| `name` | `string` | Name of the product |
+| `price` | `float` | Price of the product in USD |
+| `rating` | `float` | Average product rating (0-5) |
+| `stock` | `int` | Available stock quantity |
 
 #### Example: List
 
@@ -336,12 +336,12 @@ Create an instance: `$user = $client->User();`
 | --- | --- | --- |
 | `address` | `array` |  |
 | `company` | `array` |  |
-| `email` | `string` |  |
-| `id` | `int` |  |
-| `name` | `string` |  |
-| `phone` | `string` |  |
-| `username` | `string` |  |
-| `website` | `string` |  |
+| `email` | `string` | Email address of the user |
+| `id` | `int` | Unique identifier for the user |
+| `name` | `string` | Full name of the user |
+| `phone` | `string` | Phone number of the user |
+| `username` | `string` | Username of the user |
+| `website` | `string` | Personal website URL |
 
 #### Example: Load
 
