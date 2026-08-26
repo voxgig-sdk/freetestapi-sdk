@@ -28,6 +28,7 @@ module FreetestapiConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
