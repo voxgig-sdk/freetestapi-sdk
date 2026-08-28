@@ -30,16 +30,9 @@ class Product
 /** Request payload for Product#list. */
 class ProductListMatch
 {
-    public ?string $brand = null;
     public ?string $category = null;
-    public ?string $createdAt = null;
-    public ?string $description = null;
-    public ?int $id = null;
-    public ?string $image = null;
-    public ?string $name = null;
-    public ?float $price = null;
-    public ?float $rating = null;
-    public ?int $stock = null;
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 
 /** User entity data model. */
@@ -64,13 +57,7 @@ class UserLoadMatch
 /** Request payload for User#list. */
 class UserListMatch
 {
-    public ?array $address = null;
-    public ?array $company = null;
-    public ?string $email = null;
-    public ?int $id = null;
-    public ?string $name = null;
-    public ?string $phone = null;
-    public ?string $username = null;
-    public ?string $website = null;
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 

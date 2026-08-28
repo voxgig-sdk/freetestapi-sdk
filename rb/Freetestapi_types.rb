@@ -55,46 +55,18 @@ Product = Struct.new(
 
 # Request payload for Product#list.
 #
-# @!attribute [rw] brand
-#   @return [String, nil]
-#
 # @!attribute [rw] category
 #   @return [String, nil]
 #
-# @!attribute [rw] createdAt
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] id
+# @!attribute [rw] limit
 #   @return [Integer, nil]
 #
-# @!attribute [rw] image
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] price
-#   @return [Float, nil]
-#
-# @!attribute [rw] rating
-#   @return [Float, nil]
-#
-# @!attribute [rw] stock
+# @!attribute [rw] page
 #   @return [Integer, nil]
 ProductListMatch = Struct.new(
-  :brand,
   :category,
-  :createdAt,
-  :description,
-  :id,
-  :image,
-  :name,
-  :price,
-  :rating,
-  :stock,
+  :limit,
+  :page,
   keyword_init: true
 )
 
@@ -146,38 +118,14 @@ UserLoadMatch = Struct.new(
 
 # Request payload for User#list.
 #
-# @!attribute [rw] address
-#   @return [Hash, nil]
-#
-# @!attribute [rw] company
-#   @return [Hash, nil]
-#
-# @!attribute [rw] email
-#   @return [String, nil]
-#
-# @!attribute [rw] id
+# @!attribute [rw] limit
 #   @return [Integer, nil]
 #
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] phone
-#   @return [String, nil]
-#
-# @!attribute [rw] username
-#   @return [String, nil]
-#
-# @!attribute [rw] website
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 UserListMatch = Struct.new(
-  :address,
-  :company,
-  :email,
-  :id,
-  :name,
-  :phone,
-  :username,
-  :website,
+  :limit,
+  :page,
   keyword_init: true
 )
 

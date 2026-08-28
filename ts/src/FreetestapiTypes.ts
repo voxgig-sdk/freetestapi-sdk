@@ -19,16 +19,9 @@ export interface Product {
 }
 
 export interface ProductListMatch {
-  brand?: string
   category?: string
-  createdAt?: string
-  description?: string
-  id?: number
-  image?: string
-  name?: string
-  price?: number
-  rating?: number
-  stock?: number
+  limit?: number
+  page?: number
 }
 
 export interface User {
@@ -47,13 +40,7 @@ export interface UserLoadMatch {
 }
 
 export interface UserListMatch {
-  address?: Record<string, any>
-  company?: Record<string, any>
-  email?: string
-  id?: number
-  name?: string
-  phone?: string
-  username?: string
-  website?: string
+  limit?: number
+  page?: number
 }
 

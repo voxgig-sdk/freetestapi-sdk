@@ -28,16 +28,9 @@ type Product struct {
 
 // ProductListMatch is the typed request payload for Product.ListTyped.
 type ProductListMatch struct {
-	Brand *string `json:"brand,omitempty"`
 	Category *string `json:"category,omitempty"`
-	CreatedAt *string `json:"createdAt,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Price *float64 `json:"price,omitempty"`
-	Rating *float64 `json:"rating,omitempty"`
-	Stock *int `json:"stock,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // User is the typed data model for the user entity.
@@ -59,14 +52,8 @@ type UserLoadMatch struct {
 
 // UserListMatch is the typed request payload for User.ListTyped.
 type UserListMatch struct {
-	Address *map[string]any `json:"address,omitempty"`
-	Company *map[string]any `json:"company,omitempty"`
-	Email *string `json:"email,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Phone *string `json:"phone,omitempty"`
-	Username *string `json:"username,omitempty"`
-	Website *string `json:"website,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

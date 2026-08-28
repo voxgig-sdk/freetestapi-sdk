@@ -30,16 +30,9 @@ class Product(TypedDict, total=False):
 
 
 class ProductListMatch(TypedDict, total=False):
-    brand: str
     category: str
-    createdAt: str
-    description: str
-    id: int
-    image: str
-    name: str
-    price: float
-    rating: float
-    stock: int
+    limit: int
+    page: int
 
 
 class User(TypedDict, total=False):
@@ -58,11 +51,5 @@ class UserLoadMatch(TypedDict):
 
 
 class UserListMatch(TypedDict, total=False):
-    address: dict
-    company: dict
-    email: str
-    id: int
-    name: str
-    phone: str
-    username: str
-    website: str
+    limit: int
+    page: int
