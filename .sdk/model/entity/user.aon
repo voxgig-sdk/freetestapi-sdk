@@ -16,12 +16,14 @@ main: kit: entity: user: {
       type: "`$OBJECT`"
     }
     {
+      format: "email"
       name: "email"
       req: false
       short: "Email address of the user"
       type: "`$STRING`"
     }
     {
+      format: "int64"
       name: "id"
       req: false
       short: "Unique identifier for the user"
@@ -46,6 +48,7 @@ main: kit: entity: user: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "website"
       req: false
       short: "Personal website URL"
@@ -86,8 +89,10 @@ main: kit: entity: user: {
           }
           method: "GET"
           orig: "/users"
-          parts: [
-            "users"
+          segments: [
+            {
+              lit: "users"
+            }
           ]
           select: {
             exist: [
@@ -119,9 +124,13 @@ main: kit: entity: user: {
           }
           method: "GET"
           orig: "/users/{id}"
-          parts: [
-            "users"
-            "{id}"
+          segments: [
+            {
+              lit: "users"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

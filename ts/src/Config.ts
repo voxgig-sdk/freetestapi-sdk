@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -80,6 +91,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date-time",
           "name": "createdAt",
           "short": "Product creation timestamp",
           "type": "`$STRING`"
@@ -90,11 +102,13 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "int64",
           "name": "id",
           "short": "Unique identifier for the product",
           "type": "`$INTEGER`"
         },
         {
+          "format": "uri",
           "name": "image",
           "short": "URL to product image",
           "type": "`$STRING`"
@@ -105,11 +119,13 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "float",
           "name": "price",
           "short": "Price of the product in USD",
           "type": "`$NUMBER`"
         },
         {
+          "format": "float",
           "name": "rating",
           "short": "Average product rating (0-5)",
           "type": "`$NUMBER`"
@@ -120,6 +136,10 @@ class Config {
           "type": "`$INTEGER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "product",
       "op": {
         "list": {
@@ -154,8 +174,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/products",
-              "parts": [
-                "products"
+              "segments": [
+                {
+                  "lit": "products"
+                }
               ],
               "select": {
                 "exist": [
@@ -167,7 +189,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "products"
+              ]
             }
           ]
         }
@@ -187,11 +212,13 @@ class Config {
           "type": "`$OBJECT`"
         },
         {
+          "format": "email",
           "name": "email",
           "short": "Email address of the user",
           "type": "`$STRING`"
         },
         {
+          "format": "int64",
           "name": "id",
           "short": "Unique identifier for the user",
           "type": "`$INTEGER`"
@@ -212,11 +239,16 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "website",
           "short": "Personal website URL",
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "user",
       "op": {
         "list": {
@@ -245,8 +277,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/users",
-              "parts": [
-                "users"
+              "segments": [
+                {
+                  "lit": "users"
+                }
               ],
               "select": {
                 "exist": [
@@ -257,7 +291,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "users"
+              ]
             }
           ]
         },
@@ -280,9 +317,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/users/{id}",
-              "parts": [
-                "users",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "users"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -292,7 +333,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "users",
+                "{id}"
+              ]
             }
           ]
         }
@@ -308,6 +353,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

@@ -18,6 +18,7 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "createdAt"
       req: false
       short: "Product creation timestamp"
@@ -30,12 +31,14 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
     {
+      format: "int64"
       name: "id"
       req: false
       short: "Unique identifier for the product"
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "image"
       req: false
       short: "URL to product image"
@@ -48,12 +51,14 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "price"
       req: false
       short: "Price of the product in USD"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "rating"
       req: false
       short: "Average product rating (0-5)"
@@ -107,8 +112,10 @@ main: kit: entity: product: {
           }
           method: "GET"
           orig: "/products"
-          parts: [
-            "products"
+          segments: [
+            {
+              lit: "products"
+            }
           ]
           select: {
             exist: [

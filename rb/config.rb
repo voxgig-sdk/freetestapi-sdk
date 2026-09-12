@@ -55,6 +55,7 @@ module FreetestapiConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date-time",
               "name" => "createdAt",
               "short" => "Product creation timestamp",
               "type" => "`$STRING`",
@@ -65,11 +66,13 @@ module FreetestapiConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "int64",
               "name" => "id",
               "short" => "Unique identifier for the product",
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "uri",
               "name" => "image",
               "short" => "URL to product image",
               "type" => "`$STRING`",
@@ -80,11 +83,13 @@ module FreetestapiConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "float",
               "name" => "price",
               "short" => "Price of the product in USD",
               "type" => "`$NUMBER`",
             },
             {
+              "format" => "float",
               "name" => "rating",
               "short" => "Average product rating (0-5)",
               "type" => "`$NUMBER`",
@@ -95,6 +100,10 @@ module FreetestapiConfig
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "product",
           "op" => {
             "list" => {
@@ -129,8 +138,10 @@ module FreetestapiConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/products",
-                  "parts" => [
-                    "products",
+                  "segments" => [
+                    {
+                      "lit" => "products",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -143,6 +154,9 @@ module FreetestapiConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "products",
+                  ],
                 },
               ],
             },
@@ -162,11 +176,13 @@ module FreetestapiConfig
               "type" => "`$OBJECT`",
             },
             {
+              "format" => "email",
               "name" => "email",
               "short" => "Email address of the user",
               "type" => "`$STRING`",
             },
             {
+              "format" => "int64",
               "name" => "id",
               "short" => "Unique identifier for the user",
               "type" => "`$INTEGER`",
@@ -187,11 +203,16 @@ module FreetestapiConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "website",
               "short" => "Personal website URL",
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "user",
           "op" => {
             "list" => {
@@ -220,8 +241,10 @@ module FreetestapiConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/users",
-                  "parts" => [
-                    "users",
+                  "segments" => [
+                    {
+                      "lit" => "users",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -233,6 +256,9 @@ module FreetestapiConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "users",
+                  ],
                 },
               ],
             },
@@ -255,9 +281,13 @@ module FreetestapiConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/users/{id}",
-                  "parts" => [
-                    "users",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "users",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -268,6 +298,10 @@ module FreetestapiConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "users",
+                    "{id}",
+                  ],
                 },
               ],
             },

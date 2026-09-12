@@ -69,6 +69,7 @@ class FreetestapiConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'createdAt',
               'short' => 'Product creation timestamp',
               'type' => '`$STRING`',
@@ -79,11 +80,13 @@ class FreetestapiConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'int64',
               'name' => 'id',
               'short' => 'Unique identifier for the product',
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'image',
               'short' => 'URL to product image',
               'type' => '`$STRING`',
@@ -94,11 +97,13 @@ class FreetestapiConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'price',
               'short' => 'Price of the product in USD',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'float',
               'name' => 'rating',
               'short' => 'Average product rating (0-5)',
               'type' => '`$NUMBER`',
@@ -108,6 +113,10 @@ class FreetestapiConfig
               'short' => 'Available stock quantity',
               'type' => '`$INTEGER`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'product',
           'op' => [
@@ -143,8 +152,10 @@ class FreetestapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/products',
-                  'parts' => [
-                    'products',
+                  'segments' => [
+                    [
+                      'lit' => 'products',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -156,6 +167,9 @@ class FreetestapiConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'products',
                   ],
                 ],
               ],
@@ -176,11 +190,13 @@ class FreetestapiConfig
               'type' => '`$OBJECT`',
             ],
             [
+              'format' => 'email',
               'name' => 'email',
               'short' => 'Email address of the user',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'int64',
               'name' => 'id',
               'short' => 'Unique identifier for the user',
               'type' => '`$INTEGER`',
@@ -201,10 +217,15 @@ class FreetestapiConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'website',
               'short' => 'Personal website URL',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'user',
           'op' => [
@@ -234,8 +255,10 @@ class FreetestapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/users',
-                  'parts' => [
-                    'users',
+                  'segments' => [
+                    [
+                      'lit' => 'users',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -246,6 +269,9 @@ class FreetestapiConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'users',
                   ],
                 ],
               ],
@@ -269,9 +295,13 @@ class FreetestapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/users/{id}',
-                  'parts' => [
-                    'users',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'users',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -281,6 +311,10 @@ class FreetestapiConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'users',
+                    '{id}',
                   ],
                 ],
               ],

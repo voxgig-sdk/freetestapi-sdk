@@ -47,6 +47,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "createdAt",
 						"short": "Product creation timestamp",
 						"type": "`$STRING`",
@@ -57,11 +58,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "int64",
 						"name": "id",
 						"short": "Unique identifier for the product",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "image",
 						"short": "URL to product image",
 						"type": "`$STRING`",
@@ -72,11 +75,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "price",
 						"short": "Price of the product in USD",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "rating",
 						"short": "Average product rating (0-5)",
 						"type": "`$NUMBER`",
@@ -86,6 +91,10 @@ func MakeConfig() map[string]any {
 						"short": "Available stock quantity",
 						"type": "`$INTEGER`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "product",
 				"op": map[string]any{
@@ -121,8 +130,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/products",
-								"parts": []any{
-									"products",
+								"segments": []any{
+									map[string]any{
+										"lit": "products",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -134,6 +145,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"products",
 								},
 							},
 						},
@@ -154,11 +168,13 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
+						"format": "email",
 						"name": "email",
 						"short": "Email address of the user",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "int64",
 						"name": "id",
 						"short": "Unique identifier for the user",
 						"type": "`$INTEGER`",
@@ -179,10 +195,15 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "website",
 						"short": "Personal website URL",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "user",
 				"op": map[string]any{
@@ -212,8 +233,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/users",
-								"parts": []any{
-									"users",
+								"segments": []any{
+									map[string]any{
+										"lit": "users",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -224,6 +247,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"users",
 								},
 							},
 						},
@@ -247,9 +273,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/users/{id}",
-								"parts": []any{
-									"users",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "users",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -259,6 +289,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"users",
+									"{id}",
 								},
 							},
 						},
@@ -270,6 +304,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (
