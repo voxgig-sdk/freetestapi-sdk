@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FreetestapiSDK } from '@voxgig-sdk/freetestapi'
+import { FreetestapiSDK } from '@voxgig-sdk/freetestapi-sdk'
 
 const client = new FreetestapiSDK()
 ```
@@ -478,7 +478,7 @@ freetestapi/
 Import the SDK from the package root:
 
 ```ts
-import { FreetestapiSDK } from '@voxgig-sdk/freetestapi'
+import { FreetestapiSDK } from '@voxgig-sdk/freetestapi-sdk'
 ```
 
 ### Entity state

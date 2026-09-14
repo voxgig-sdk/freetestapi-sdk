@@ -105,7 +105,7 @@ local results, err = client:Product():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
+| TypeScript | `@voxgig-sdk/freetestapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
 | Python | `voxgig-sdk-freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
 | PHP | `voxgig-sdk/freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/freetestapi-sdk/go` | `go get github.com/voxgig-sdk/freetestapi-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Product():list()
 ### TypeScript
 
 ```ts
-import { FreetestapiSDK } from '@voxgig-sdk/freetestapi'
+import { FreetestapiSDK } from '@voxgig-sdk/freetestapi-sdk'
 
 const client = new FreetestapiSDK()
 
