@@ -1,12 +1,18 @@
 # Freetestapi SDK feature factory
 
 from freetestapi_sdk.feature.base_feature import FreetestapiBaseFeature
+from freetestapi_sdk.feature.ratelimit_feature import FreetestapiRatelimitFeature
+from freetestapi_sdk.feature.retry_feature import FreetestapiRetryFeature
 from freetestapi_sdk.feature.test_feature import FreetestapiTestFeature
+from freetestapi_sdk.feature.timeout_feature import FreetestapiTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FreetestapiBaseFeature(),
+    "ratelimit": lambda: FreetestapiRatelimitFeature(),
+    "retry": lambda: FreetestapiRetryFeature(),
     "test": lambda: FreetestapiTestFeature(),
+    "timeout": lambda: FreetestapiTimeoutFeature(),
 }
 
 
