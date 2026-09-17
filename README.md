@@ -105,12 +105,12 @@ local results, err = client:Product():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/freetestapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
-| Python | `voxgig-sdk-freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
-| PHP | `voxgig-sdk/freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
+| TypeScript | `@voxgig-sdk/freetestapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/tags) |
+| Python | `voxgig-sdk-freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/tags) |
+| PHP | `voxgig-sdk/freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/freetestapi-sdk/go` | `go get github.com/voxgig-sdk/freetestapi-sdk/go@latest` |
-| Ruby | `voxgig-sdk-freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
-| Lua | `voxgig-sdk-freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/releases) |
+| Ruby | `voxgig-sdk-freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/tags) |
+| Lua | `voxgig-sdk-freetestapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/freetestapi-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/freetestapi-sdk/go-cli` | `go install github.com/voxgig-sdk/freetestapi-sdk/go-cli/cmd/freetestapi@latest` |
 | Go MCP server | `github.com/voxgig-sdk/freetestapi-sdk/go-mcp` | `go get github.com/voxgig-sdk/freetestapi-sdk/go-mcp@latest` |
 

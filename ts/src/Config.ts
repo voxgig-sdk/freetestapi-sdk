@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      product: {
-      },
-
-      user: {
-      },
-
+        product: {
+        },
+  
+        user: {
+        },
+  
     }
   }
 

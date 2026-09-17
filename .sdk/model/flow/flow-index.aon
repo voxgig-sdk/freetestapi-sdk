@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicProductFlow.aon"
-@"BasicUserFlow.aon"
+@"./BasicProductFlow.aon"
+@"./BasicUserFlow.aon"

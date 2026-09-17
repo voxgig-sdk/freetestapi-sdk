@@ -1,4 +1,4 @@
 # Entity Models
 
-@"product.aon"
-@"user.aon"
+@"./product.aon"
+@"./user.aon"
