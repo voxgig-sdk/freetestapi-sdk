@@ -100,58 +100,68 @@ module FreetestapiConfig
           "fields" => [
             {
               "name" => "brand",
-              "short" => "Brand name of the product",
+              "title" => "Brand",
               "type" => "`$STRING`",
+              "short" => "Brand name of the product",
             },
             {
               "name" => "category",
-              "short" => "Product category",
+              "title" => "Category",
               "type" => "`$STRING`",
+              "short" => "Product category",
             },
             {
-              "format" => "date-time",
               "name" => "createdAt",
-              "short" => "Product creation timestamp",
+              "title" => "Created At",
               "type" => "`$STRING`",
+              "short" => "Product creation timestamp",
+              "format" => "date-time",
             },
             {
               "name" => "description",
+              "title" => "Description",
+              "type" => "`$STRING`",
               "short" => "Detailed description of the product",
-              "type" => "`$STRING`",
             },
             {
-              "format" => "int64",
               "name" => "id",
-              "short" => "Unique identifier for the product",
+              "title" => "Id",
               "type" => "`$INTEGER`",
+              "short" => "Unique identifier for the product",
+              "format" => "int64",
             },
             {
-              "format" => "uri",
               "name" => "image",
-              "short" => "URL to product image",
+              "title" => "Image",
               "type" => "`$STRING`",
+              "short" => "URL to product image",
+              "format" => "uri",
             },
             {
               "name" => "name",
-              "short" => "Name of the product",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Name of the product",
             },
             {
-              "format" => "float",
               "name" => "price",
-              "short" => "Price of the product in USD",
+              "title" => "Price",
               "type" => "`$NUMBER`",
+              "short" => "Price of the product in USD",
+              "format" => "float",
             },
             {
-              "format" => "float",
               "name" => "rating",
-              "short" => "Average product rating (0-5)",
+              "title" => "Rating",
               "type" => "`$NUMBER`",
+              "short" => "Average product rating (0-5)",
+              "format" => "float",
             },
             {
               "name" => "stock",
-              "short" => "Available stock quantity",
+              "title" => "Stock",
               "type" => "`$INTEGER`",
+              "short" => "Available stock quantity",
             },
           ],
           "id" => {
@@ -165,30 +175,6 @@ module FreetestapiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "category",
-                        "orig" => "category",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 10,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 1,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/products",
@@ -197,6 +183,38 @@ module FreetestapiConfig
                       "lit" => "products",
                     },
                   ],
+                  "parts" => [
+                    "products",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "category",
+                        "orig" => "category",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 10,
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 1,
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "category",
@@ -204,13 +222,6 @@ module FreetestapiConfig
                       "page",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "products",
-                  ],
                 },
               ],
             },
@@ -223,44 +234,52 @@ module FreetestapiConfig
           "fields" => [
             {
               "name" => "address",
+              "title" => "Address",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "company",
+              "title" => "Company",
               "type" => "`$OBJECT`",
             },
             {
-              "format" => "email",
               "name" => "email",
-              "short" => "Email address of the user",
+              "title" => "Email",
               "type" => "`$STRING`",
+              "short" => "Email address of the user",
+              "format" => "email",
             },
             {
-              "format" => "int64",
               "name" => "id",
-              "short" => "Unique identifier for the user",
+              "title" => "Id",
               "type" => "`$INTEGER`",
+              "short" => "Unique identifier for the user",
+              "format" => "int64",
             },
             {
               "name" => "name",
-              "short" => "Full name of the user",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Full name of the user",
             },
             {
               "name" => "phone",
-              "short" => "Phone number of the user",
+              "title" => "Phone",
               "type" => "`$STRING`",
+              "short" => "Phone number of the user",
             },
             {
               "name" => "username",
-              "short" => "Username of the user",
+              "title" => "Username",
               "type" => "`$STRING`",
+              "short" => "Username of the user",
             },
             {
-              "format" => "uri",
               "name" => "website",
-              "short" => "Personal website URL",
+              "title" => "Website",
               "type" => "`$STRING`",
+              "short" => "Personal website URL",
+              "format" => "uri",
             },
           ],
           "id" => {
@@ -274,24 +293,6 @@ module FreetestapiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "example" => 10,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 1,
-                        "kind" => "query",
-                        "name" => "page",
-                        "orig" => "page",
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/users",
@@ -300,19 +301,38 @@ module FreetestapiConfig
                       "lit" => "users",
                     },
                   ],
+                  "parts" => [
+                    "users",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 10,
+                      },
+                      {
+                        "name" => "page",
+                        "orig" => "page",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 1,
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "limit",
                       "page",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "users",
-                  ],
                 },
               ],
             },
@@ -321,17 +341,6 @@ module FreetestapiConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "kind" => "param",
-                        "name" => "id",
-                        "orig" => "id",
-                        "reqd" => true,
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/users/{id}",
@@ -343,19 +352,31 @@ module FreetestapiConfig
                       "var" => "id",
                     },
                   ],
+                  "parts" => [
+                    "users",
+                    "{id}",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "id",
+                        "orig" => "id",
+                        "type" => "`$INTEGER`",
+                        "kind" => "param",
+                        "reqd" => true,
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "id",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "users",
-                    "{id}",
-                  ],
                 },
               ],
             },

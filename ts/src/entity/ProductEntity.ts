@@ -19,7 +19,6 @@ import type {
   ProductListMatch,
 } from '../FreetestapiTypes'
 
-// TODO: needs Entity superclass
 class ProductEntity extends FreetestapiEntityBase<Product> {
 
   constructor(client: FreetestapiSDK, entopts: any) {

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductEntity = void 0;
 const FreetestapiEntityBase_1 = require("../FreetestapiEntityBase");
-// TODO: needs Entity superclass
 class ProductEntity extends FreetestapiEntityBase_1.FreetestapiEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

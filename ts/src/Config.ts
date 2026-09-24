@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,58 +135,68 @@ class Config {
       "fields": [
         {
           "name": "brand",
-          "short": "Brand name of the product",
-          "type": "`$STRING`"
+          "title": "Brand",
+          "type": "`$STRING`",
+          "short": "Brand name of the product"
         },
         {
           "name": "category",
-          "short": "Product category",
-          "type": "`$STRING`"
+          "title": "Category",
+          "type": "`$STRING`",
+          "short": "Product category"
         },
         {
-          "format": "date-time",
           "name": "createdAt",
+          "title": "Created At",
+          "type": "`$STRING`",
           "short": "Product creation timestamp",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "description",
-          "short": "Detailed description of the product",
-          "type": "`$STRING`"
+          "title": "Description",
+          "type": "`$STRING`",
+          "short": "Detailed description of the product"
         },
         {
-          "format": "int64",
           "name": "id",
+          "title": "Id",
+          "type": "`$INTEGER`",
           "short": "Unique identifier for the product",
-          "type": "`$INTEGER`"
+          "format": "int64"
         },
         {
-          "format": "uri",
           "name": "image",
+          "title": "Image",
+          "type": "`$STRING`",
           "short": "URL to product image",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "name",
-          "short": "Name of the product",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Name of the product"
         },
         {
-          "format": "float",
           "name": "price",
+          "title": "Price",
+          "type": "`$NUMBER`",
           "short": "Price of the product in USD",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "rating",
+          "title": "Rating",
+          "type": "`$NUMBER`",
           "short": "Average product rating (0-5)",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "stock",
-          "short": "Available stock quantity",
-          "type": "`$INTEGER`"
+          "title": "Stock",
+          "type": "`$INTEGER`",
+          "short": "Available stock quantity"
         }
       ],
       "id": {
@@ -207,30 +210,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "category",
-                    "orig": "category",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/products",
@@ -239,20 +218,45 @@ class Config {
                   "lit": "products"
                 }
               ],
+              "parts": [
+                "products"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "category",
+                    "orig": "category",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "category",
                   "limit",
                   "page"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "products"
-              ]
+              }
             }
           ]
         }
@@ -265,44 +269,52 @@ class Config {
       "fields": [
         {
           "name": "address",
+          "title": "Address",
           "type": "`$OBJECT`"
         },
         {
           "name": "company",
+          "title": "Company",
           "type": "`$OBJECT`"
         },
         {
-          "format": "email",
           "name": "email",
+          "title": "Email",
+          "type": "`$STRING`",
           "short": "Email address of the user",
-          "type": "`$STRING`"
+          "format": "email"
         },
         {
-          "format": "int64",
           "name": "id",
+          "title": "Id",
+          "type": "`$INTEGER`",
           "short": "Unique identifier for the user",
-          "type": "`$INTEGER`"
+          "format": "int64"
         },
         {
           "name": "name",
-          "short": "Full name of the user",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Full name of the user"
         },
         {
           "name": "phone",
-          "short": "Phone number of the user",
-          "type": "`$STRING`"
+          "title": "Phone",
+          "type": "`$STRING`",
+          "short": "Phone number of the user"
         },
         {
           "name": "username",
-          "short": "Username of the user",
-          "type": "`$STRING`"
+          "title": "Username",
+          "type": "`$STRING`",
+          "short": "Username of the user"
         },
         {
-          "format": "uri",
           "name": "website",
+          "title": "Website",
+          "type": "`$STRING`",
           "short": "Personal website URL",
-          "type": "`$STRING`"
+          "format": "uri"
         }
       ],
       "id": {
@@ -316,24 +328,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": 10,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/users",
@@ -342,19 +336,38 @@ class Config {
                   "lit": "users"
                 }
               ],
+              "parts": [
+                "users"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 10
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "limit",
                   "page"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "users"
-              ]
+              }
             }
           ]
         },
@@ -363,17 +376,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/users/{id}",
@@ -385,19 +387,31 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "users",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "users",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }

@@ -43,7 +43,7 @@ local products, err = client:Product():list()
 if err then error(err) end
 
 for _, item in ipairs(products) do
-  print(item["id"], item["brand"])
+  print(item["id"])
 end
 ```
 
